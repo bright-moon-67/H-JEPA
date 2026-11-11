@@ -18,6 +18,12 @@ import torch
 from torch.nn import functional as F
 
 from action_response import ActionResponseNet, ResponseConfig, response_loss
+from action_response_data import (
+    build_pair_tensors,
+    encode_anchors,
+    load_anchor_h5,
+)
+from action_response_metrics import compute_response_metrics, format_metrics_row
 from data import IMAGENET_STATS
 
 
@@ -86,20 +92,28 @@ def prepare_tensors(npz_path, model, device, encode_batch_size):
     }
 
 
+def prepare_anchor_tensors(h5_path, model, device, encode_batch_size):
+    """Anchor H5 -> expanded pair tensors (all C(K,2) pairs per anchor)."""
+    data = load_anchor_h5(h5_path)
+    z0, z_end = encode_anchors(model, data, device, encode_batch_size)
+    pairs = build_pair_tensors(z0, z_end, data["actions"])
+    pairs["anchor_idx"] = torch.as_tensor(pairs["anchor_idx"])
+    return pairs
+
+
 @torch.no_grad()
 def evaluate(net, tensors, device, batch_size=128):
     net.eval()
     n = len(tensors["z0"])
-    mse_sum, zero_sum, seen = 0.0, 0.0, 0
+    preds, targets = [], []
     for k in range(0, n, batch_size):
-        items = {key: v[k:k+batch_size].to(device) for key, v in tensors.items()}
+        items = {key: v[k:k+batch_size].to(device) for key, v in tensors.items()
+                 if key in ("z0", "a", "b", "target")}
         prediction = net(items["z0"], items["a"], items["b"])
-        target = items["target"]
-        mse_sum += F.mse_loss(prediction, target, reduction="sum").item()
-        zero_sum += target.square().sum().item()
-        seen += target.numel()
+        preds.append(prediction.float().cpu())
+        targets.append(items["target"].float().cpu())
     net.train()
-    return {"mse": mse_sum / seen, "zero_effect_mse": zero_sum / seen}
+    return compute_response_metrics(torch.cat(preds), torch.cat(targets))
 
 
 def main():
@@ -121,9 +135,11 @@ def main():
     device = torch.device(args.device)
     model = load_checkpoint(args.ckpt, device)
 
-    print("Encoding paired images once with frozen H-JEPA...", flush=True)
-    train = prepare_tensors(args.train, model, device, args.encode_batch_size)
-    val = prepare_tensors(args.val, model, device, args.encode_batch_size)
+    print("Encoding images once with frozen H-JEPA...", flush=True)
+    loader = prepare_anchor_tensors if args.train.endswith(".h5") else prepare_tensors
+    val_loader = prepare_anchor_tensors if args.val.endswith(".h5") else prepare_tensors
+    train = loader(args.train, model, device, args.encode_batch_size)
+    val = val_loader(args.val, model, device, args.encode_batch_size)
     if len(train["z0"]) == 0 or len(val["z0"]) == 0:
         raise ValueError("Empty train/val dataset")
     latent_dim = int(train["z0"].shape[-1])
@@ -138,17 +154,32 @@ def main():
     optim = torch.optim.AdamW(net.parameters(), lr=args.lr, weight_decay=1e-4)
 
     initial_val = evaluate(net, val, device)
-    print(f"initial validation: {initial_val}", flush=True)
+    print("initial " + format_metrics_row("val", initial_val), flush=True)
+    swap_enabled = "anchor_idx" in train
     gen = torch.Generator(device="cpu").manual_seed(args.seed)
     for step in range(1, args.steps + 1):
         idx = torch.randint(
             len(train["z0"]), (args.batch_size,), generator=gen
         )
-        batch = {key: value[idx].to(device) for key, value in train.items()}
+        batch = {
+            key: value[idx].to(device)
+            for key, value in train.items()
+            if key in ("z0", "a", "b", "target")
+        }
+        if swap_enabled:
+            # Random A/B order augmentation; network is antisymmetric by design.
+            swap = torch.rand(len(idx), generator=gen) < 0.5
+            swap = swap.to(device)
+            a, b = batch["a"], batch["b"]
+            batch["a"] = torch.where(swap[:, None, None], b, a)
+            batch["b"] = torch.where(swap[:, None, None], a, b)
+            target = torch.where(swap[:, None], -batch["target"], batch["target"])
+        else:
+            target = batch["target"]
 
         net.train()
         pred = net(batch["z0"], batch["a"], batch["b"])
-        loss = response_loss(pred, batch["target"])
+        loss = response_loss(pred, target)
         optim.zero_grad(set_to_none=True)
         loss.backward()
         optim.step()
@@ -156,9 +187,8 @@ def main():
         if step == 1 or step % max(1, args.steps // 5) == 0:
             metrics = evaluate(net, val, device)
             print(
-                f"step={step} train_mse={loss.item():.5f} "
-                f"val_mse={metrics['mse']:.5f} "
-                f"zero_mse={metrics['zero_effect_mse']:.5f}",
+                f"step={step:5d} train_mse={loss.item():.5f} "
+                + format_metrics_row("val", metrics),
                 flush=True,
             )
 
