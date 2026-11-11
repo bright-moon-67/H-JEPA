@@ -213,7 +213,14 @@ class HierarchicalSolver:
             subgoal_latents = result['predictions']['predicted_embed_0']
             subgoal_actions = result['actions']
 
-        return {'actions': result['actions']}
+        # The loop runs top-down, so `result` here is level 1's solve. Its rollout
+        # already predicts the latents at each macro step of the executed plan;
+        # expose them so a policy can score the plan online without re-running the
+        # model. Shape: (num_envs, horizon + 1, D), index 0 = context frame.
+        return {
+            'actions': result['actions'],
+            'predicted_embed_1': result['predictions'].get('predicted_embed_0'),
+        }
 
     def _level_plan_config(self, level: int) -> Any:
         """Return planning config for a specific hierarchy level."""

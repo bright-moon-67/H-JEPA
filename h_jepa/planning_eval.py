@@ -205,6 +205,20 @@ def build_solver(cfg: DictConfig, model):
     return hydra.utils.instantiate(cfg.solver, model=model)
 
 
+def _adaptive_config(cfg: DictConfig):
+    """Return the adaptive-replanning block, wherever the config declares it."""
+    adaptive = cfg.get("adaptive", None)
+    if adaptive is not None:
+        return adaptive
+
+    hp_cfg = cfg.get("hierarchical_plan_config", None)
+    if hp_cfg is not None:
+        level1 = hp_cfg.get("level1", None)
+        if level1 is not None:
+            return level1.get("adaptive", None)
+    return None
+
+
 def _build_policy(
     cfg: DictConfig,
     process: dict,
@@ -219,6 +233,19 @@ def _build_policy(
         _drop_levels_above_model(cfg, model.num_levels)
     policy_config = _build_policy_plan_config(cfg)
     solver = build_solver(cfg, model)
+
+    adaptive_cfg = _adaptive_config(cfg)
+    if adaptive_cfg is not None and bool(adaptive_cfg.get("enabled", False)):
+        from adaptive_policy import AdaptiveWorldModelPolicy
+
+        return AdaptiveWorldModelPolicy(
+            solver=solver,
+            config=policy_config,
+            process=process,
+            transform=transform,
+            eval_budget=int(cfg.eval.eval_budget),
+            adaptive=OmegaConf.to_container(adaptive_cfg, resolve=True),
+        )
 
     return swm.policy.WorldModelPolicy(
         solver=solver,

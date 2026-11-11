@@ -399,7 +399,22 @@ class WorldModelPolicy(BasePolicy):
         assert 'goal' in info_dict, "'goal' must be provided in info_dict"
 
         info_dict = self._prepare_info(info_dict)
+        return self._next_action(info_dict)
 
+    def _next_action(self, info_dict: dict) -> np.ndarray:
+        """Pop the next buffered action, re-planning when the buffer is empty.
+
+        Assumes ``info_dict`` has already been through :meth:`_prepare_info`.
+        Kept separate from :meth:`get_action` so subclasses can inspect the
+        prepared observations (e.g. to score world-model accuracy) before an
+        action is consumed.
+
+        Args:
+            info_dict: Pre-processed current state information.
+
+        Returns:
+            The selected action(s) as a numpy array.
+        """
         # need to replan if action buffer is empty
         if len(self._action_buffer) == 0:
             remaining_steps = self._remaining_eval_steps()

@@ -1,0 +1,21 @@
+# Push-T / H-JEPA l2 with adaptive replanning.
+#
+# Step 1 (calibration): log_only=true. No decision is taken, every 5-step check
+# appends one JSON line so `tau` can be derived from the empirical e_t
+# distribution (script: scripts/calibrate_adaptive.py).
+defaults:
+  - pusht_l2
+  - _self_
+
+hierarchical_plan_config:
+  level1:
+    adaptive:
+      enabled: true
+      log_only: true
+      check_after: 5        # == level1.action_block: one macro step
+      norm: global          # global | per_dim
+      sigma_z: null         # null -> log raw mse + z_sq, normalise offline
+      tau: null             # null -> never triggers (log only)
+      eps: 1.0e-08
+      ema_alpha: null       # e.g. 0.3 to smooth e_t before thresholding
+      log_path: ${oc.env:HJEPA_HOME}/adaptive_logs/pusht_l2_seed${seed}.jsonl
