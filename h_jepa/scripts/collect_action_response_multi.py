@@ -37,6 +37,16 @@ BRANCH_DIRECTIONS = (
     (0.0, -0.4),
     (0.6, 0.0),
 )
+# OOD probes: off-axis directions, varied magnitudes, and temporal ramps so the
+# action distribution differs from the fixed-axis collection strategy.
+OOD_DIRECTIONS = (
+    (0.55, 0.55),
+    (-0.55, 0.55),
+    (0.70, -0.30),
+    (-0.20, -0.60),
+    (0.35, -0.35),
+)
+OOD_RAMP_BRANCHES = (1, 3)  # indices scaled linearly from 0.2x to 1.0x over 5 steps
 
 
 def make_env():
@@ -81,8 +91,23 @@ def run_branch(env, seed, prefix, branch_actions):
     }
 
 
-def make_action_branches(base_action, rng, n_branches, horizon=5):
+def make_action_branches(base_action, rng, n_branches, horizon=5, action_mode="default"):
     base = np.repeat(np.asarray(base_action, dtype=np.float32)[None], horizon, axis=0)
+    if action_mode == "ood":
+        if n_branches > len(OOD_DIRECTIONS):
+            raise ValueError(f"n_branches must be <= {len(OOD_DIRECTIONS)} for OOD")
+        branches = []
+        for k, delta in enumerate(OOD_DIRECTIONS[:n_branches]):
+            scale = np.ones((horizon, 1), dtype=np.float32)
+            if k in OOD_RAMP_BRANCHES:
+                scale = np.linspace(0.2, 1.0, horizon, dtype=np.float32)[:, None]
+            noise = rng.normal(0.0, 0.06, size=(horizon, 2)).astype(np.float32)
+            branch = np.clip(
+                base + np.asarray(delta, np.float32)[None] * scale + noise, -1.0, 1.0
+            )
+            branches.append(branch.astype(np.float32))
+        return branches
+
     if n_branches > len(BRANCH_DIRECTIONS):
         raise ValueError(f"n_branches must be <= {len(BRANCH_DIRECTIONS)}")
     branches = []
@@ -93,7 +118,7 @@ def make_action_branches(base_action, rng, n_branches, horizon=5):
     return branches
 
 
-def collect_anchor(env, anchor_seed, rng, mode, n_branches):
+def collect_anchor(env, anchor_seed, rng, mode, n_branches, action_mode="default"):
     obs, _ = env.reset(seed=anchor_seed)
 
     if mode == "free":
@@ -111,7 +136,7 @@ def collect_anchor(env, anchor_seed, rng, mode, n_branches):
     prefix = np.asarray(prefix, dtype=np.float32).reshape(-1, 2)
 
     base = steer_action(obs["state"], rng, mode=mode)
-    actions = make_action_branches(base, rng, n_branches)
+    actions = make_action_branches(base, rng, n_branches, action_mode=action_mode)
     outcomes = [run_branch(env, anchor_seed, prefix, a) for a in actions]
 
     for k, result in enumerate(outcomes):
@@ -133,38 +158,44 @@ def collect_anchor(env, anchor_seed, rng, mode, n_branches):
         "end_state": np.stack([o["end_state"] for o in outcomes]),
         "contacts": np.asarray([o["contacts"] for o in outcomes], dtype=np.int32),
         "prefix_len": len(prefix),
+        "prefix_actions": prefix,
     }
 
 
 _WORKER_ENV = None
+_WORKER_ACTION_MODE = "default"
 
 
-def _worker_init():
-    global _WORKER_ENV
+def _worker_init(action_mode="default"):
+    global _WORKER_ENV, _WORKER_ACTION_MODE
     _WORKER_ENV = make_env()
+    _WORKER_ACTION_MODE = action_mode
 
 
 def _worker_task(job):
     anchor_seed, mode, n_branches = job
     rng = np.random.default_rng(anchor_seed)
-    return collect_anchor(_WORKER_ENV, anchor_seed, rng, mode, n_branches)
+    return collect_anchor(_WORKER_ENV, anchor_seed, rng, mode, n_branches,
+                          action_mode=_WORKER_ACTION_MODE)
 
 
-def collect_split(n_anchors, seed, n_branches, workers):
+def collect_split(n_anchors, seed, n_branches, workers, action_mode="default"):
     jobs = [
         (int(seed) * 100_000 + i, MODES[i % len(MODES)], n_branches)
         for i in range(n_anchors)
     ]
     rows = []
     if workers <= 1:
-        _worker_init()
+        _worker_init(action_mode)
         for k, job in enumerate(jobs):
             rows.append(_worker_task(job))
             if (k + 1) % 50 == 0 or k + 1 == len(jobs):
                 print(f"  collected {k+1}/{len(jobs)}", flush=True)
     else:
         import multiprocessing as mp
-        with mp.get_context("fork").Pool(workers, initializer=_worker_init) as pool:
+        with mp.get_context("fork").Pool(
+            workers, initializer=_worker_init, initargs=(action_mode,)
+        ) as pool:
             for k, row in enumerate(
                 pool.imap_unordered(_worker_task, jobs, chunksize=8), 1
             ):
@@ -173,6 +204,10 @@ def collect_split(n_anchors, seed, n_branches, workers):
                     print(f"  collected {k}/{len(jobs)}", flush=True)
 
     rows.sort(key=lambda r: r["anchor_seed"])
+    max_prefix = max(len(r["prefix_actions"]) for r in rows)
+    prefix_padded = np.zeros((len(rows), max_prefix, 2), dtype=np.float32)
+    for i, r in enumerate(rows):
+        prefix_padded[i, :len(r["prefix_actions"])] = r["prefix_actions"]
     return {
         "anchor_seed": np.asarray([r["anchor_seed"] for r in rows], dtype=np.int64),
         "modes": np.asarray([r["mode"] for r in rows]),
@@ -183,6 +218,7 @@ def collect_split(n_anchors, seed, n_branches, workers):
         "end_state": np.stack([r["end_state"] for r in rows]),
         "contacts": np.stack([r["contacts"] for r in rows]),
         "prefix_len": np.asarray([r["prefix_len"] for r in rows], dtype=np.int32),
+        "prefix_actions": prefix_padded,
     }
 
 
@@ -212,6 +248,7 @@ def main():
     parser.add_argument("--test-anchors", type=int, default=300)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--action-mode", choices=("default", "ood"), default="default")
     args = parser.parse_args()
 
     out = Path(args.out_dir)
@@ -227,7 +264,8 @@ def main():
             continue
         print(f"collecting {name}: {n_anchors} anchors x {args.branches} branches",
               flush=True)
-        data = collect_split(n_anchors, seed, args.branches, args.workers)
+        data = collect_split(n_anchors, seed, args.branches, args.workers,
+                             action_mode=args.action_mode)
         seeds = set(int(s) for s in data["anchor_seed"])
         assert not (seeds & seen), f"anchor seeds collide between splits: {name}"
         seen |= seeds

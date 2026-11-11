@@ -21,7 +21,7 @@ import torch
 
 DATASET_KEYS = (
     "rgb0", "end_rgb", "actions", "state0", "end_state",
-    "contacts", "modes", "anchor_seed", "prefix_len",
+    "contacts", "modes", "anchor_seed", "prefix_len", "prefix_actions",
 )
 
 
