@@ -1,0 +1,112 @@
+"""Post-training check: compare ActionResponseNet against true latent effects.
+
+Implements the plan's §2.2 "learning check": load the trained head, extract
+z0 with the frozen Level-1 encoder, feed fixed A/B actions, and compare the
+predicted response to the true latent difference, grouped by physical
+outcome (contact / block motion / rotation).
+
+Usage (from h_jepa/):
+    PYTHONPATH=. python -u scripts/eval_action_response_pusht.py \
+        --data /tmp/pusht_cf_fixed.npz \
+        --head /tmp/action_response_head.pt \
+        --ckpt "$HJEPA_HOME/ckpts/pusht/pusht_hjepa_l2/seed42/pusht_hjepa_l2_object.ckpt"
+"""
+import argparse
+import os
+
+os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
+os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
+
+from dataclasses import asdict
+
+import numpy as np
+import torch
+from torch.nn import functional as F
+
+from action_response import ActionResponseNet, ResponseConfig
+from train_action_response import encode_rgb, load_checkpoint
+
+
+def wrapped_angle_delta(a, b):
+    return np.arctan2(np.sin(a - b), np.cos(a - b))
+
+
+def load_head(path, device):
+    payload = torch.load(path, map_location="cpu", weights_only=False)
+    cfg = ResponseConfig(**payload["config"])
+    net = ActionResponseNet(cfg).to(device)
+    net.load_state_dict(payload["state_dict"])
+    net.eval()
+    return net, payload
+
+
+@torch.no_grad()
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--data", required=True)
+    p.add_argument("--head", required=True)
+    p.add_argument("--ckpt", required=True, help="H-JEPA checkpoint used for the frozen encoder")
+    p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    p.add_argument("--encode-batch-size", type=int, default=16)
+    p.add_argument("--rotation-threshold-deg", type=float, default=5.0)
+    p.add_argument("--block-move-threshold-px", type=float, default=5.0)
+    args = p.parse_args()
+
+    device = torch.device(args.device)
+    with np.load(args.data, allow_pickle=False) as d:
+        rgb0, rgb_a, rgb_b = d["rgb0"], d["rgb_a"], d["rgb_b"]
+        acts_a = torch.from_numpy(d["acts_a"].astype(np.float32))
+        acts_b = torch.from_numpy(d["acts_b"].astype(np.float32))
+        s_a, s_b = d["state_a"].copy(), d["state_b"].copy()
+        contacts = (d["contacts_a"] + d["contacts_b"]) > 0
+
+    model = load_checkpoint(args.ckpt, device)
+    z0 = encode_rgb(model, rgb0, device, args.encode_batch_size)
+    z_a = encode_rgb(model, rgb_a, device, args.encode_batch_size)
+    z_b = encode_rgb(model, rgb_b, device, args.encode_batch_size)
+    del model
+    if device.type == "cuda":
+        torch.cuda.empty_cache()
+
+    net, payload = load_head(args.head, device)
+    target = (z_a - z_b).detach().to(device)
+    pred = net(z0.to(device), acts_a.to(device), acts_b.to(device))
+
+    per_pair_mse = F.mse_loss(pred, target, reduction="none").mean(dim=1).cpu().numpy()
+    per_pair_zero = target.square().mean(dim=1).cpu().numpy()
+    target_norm = target.norm(dim=1).cpu().numpy()
+
+    block_move = np.linalg.norm(s_a[:, 2:4] - s_b[:, 2:4], axis=1)
+    rotation = np.degrees(np.abs(wrapped_angle_delta(s_a[:, 4], s_b[:, 4])))
+
+    groups = {
+        "all": np.ones(len(per_pair_mse), dtype=bool),
+        "contact": contacts,
+        "no_contact": ~contacts,
+        "block_move>thr": block_move > args.block_move_threshold_px,
+        "block_static": block_move <= args.block_move_threshold_px,
+        "rotation>thr": rotation > args.rotation_threshold_deg,
+        "rotation~0": rotation <= args.rotation_threshold_deg,
+    }
+
+    n = len(per_pair_mse)
+    print(f"pairs={n}, head={args.head}, steps={payload.get('steps')}")
+    print(f"{'group':<16s} {'n':>4s} {'pred_mse':>10s} {'zero_mse':>10s} "
+          f"{'|r*|':>8s} {'beats_zero':>10s}")
+    for name, mask in groups.items():
+        if mask.sum() == 0:
+            continue
+        pm = per_pair_mse[mask].mean()
+        zm = per_pair_zero[mask].mean()
+        tn = target_norm[mask].mean()
+        print(f"{name:<16s} {int(mask.sum()):4d} {pm:10.5f} {zm:10.5f} "
+              f"{tn:8.3f} {pm < zm!s:>10s}")
+
+    finite = bool(np.isfinite(per_pair_mse).all())
+    print(f"all_finite={finite}")
+    if not finite:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()
