@@ -1,0 +1,33 @@
+{
+  "n_anchors": 10,
+  "n_valid": 10,
+  "n_invalid": 0,
+  "invalid_reasons": [],
+  "n_baseline_success": 5,
+  "n_recoverable": 3,
+  "n_fragile": 4,
+  "n_pairs": 40,
+  "n_nonzero_pairs": 40,
+  "dc_mean": 0.05367924565550779,
+  "dc_median": -0.01780049791062849,
+  "dc_min": -1.485393981145924,
+  "dc_max": 1.7459766217264074,
+  "candidate_success_rate": 0.4,
+  "episode_overlap": [],
+  "action_abs_max": 3.765566349029541,
+  "action_oob_ratio": 0.485,
+  "train_episodes": [
+    "train_ep0040",
+    "train_ep0041",
+    "train_ep0042",
+    "train_ep0043",
+    "train_ep0044",
+    "train_ep0045"
+  ],
+  "val_episodes": [
+    "train_ep0046",
+    "train_ep0047",
+    "train_ep0048",
+    "train_ep0049"
+  ]
+}

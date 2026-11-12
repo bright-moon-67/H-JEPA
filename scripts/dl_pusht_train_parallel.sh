@@ -3,11 +3,11 @@
 # Single-connection throughput to hf-mirror is ~3-5 MB/s; 24 parallel ranges
 # aggregate considerably more. Parts are resumable (curl -C -), then joined.
 set -u
-URL="https://hf-mirror.com/datasets/quentinll/lewm-pusht/resolve/main/pusht_expert_train.h5.zst"
+URL="${URL_OVERRIDE:-https://hf-mirror.com/datasets/quentinll/lewm-pusht/resolve/main/pusht_expert_train.h5.zst}"
 SIZE=13136247974
 N=${N:-48}          # number of ranges
 P=${P:-24}          # parallel workers
-OUT_DIR=${OUT_DIR:-/root/rivermind-data/hjepa_home/train_parts}
+OUT_DIR=${OUT_DIR:-/root/rivermind-data/hjepa_home/train_parts_n${N}}
 OUT_FILE=${OUT_FILE:-/root/rivermind-data/hjepa_home/pusht_expert_train.h5.zst}
 
 mkdir -p "$OUT_DIR"
@@ -23,13 +23,20 @@ fetch_one() {
   if [ -f "$part" ]; then
     local have
     have=$(stat -c%s "$part" 2>/dev/null || echo 0)
-    [ "$have" -ge "$want" ] && return 0
+    # Strict equality: a part left over from a DIFFERENT split count has the
+    # same name but a different length, and silently reusing it corrupts the
+    # concatenated archive.
+    if [ "$have" -eq "$want" ]; then return 0; fi
+    rm -f "$part"
   fi
   curl -sL --retry 5 --retry-delay 2 --speed-time 60 --speed-limit 1024 \
     -C - -r "$s-$e" -o "$part" "$URL"
   local have
   have=$(stat -c%s "$part" 2>/dev/null || echo 0)
-  [ "$have" -lt "$want" ] && echo "INCOMPLETE $i ($have/$want)"
+  if [ "$have" -ne "$want" ]; then
+    echo "INCOMPLETE $i ($have/$want)"
+    rm -f "$part"
+  fi
   return 0
 }
 export -f fetch_one
