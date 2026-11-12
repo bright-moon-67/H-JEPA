@@ -35,6 +35,9 @@ def load_ragc_npz(path):
                 f"Expected labels from baseline_continuation, got {label_source!r}"
             )
         d = {k: f[k] for k in REQUIRED}
+        for extra in ("source_episode_uid", "task_uid"):
+            if extra in f:
+                d[extra] = f[extra]
     n = len(d["anchor_id"])
     for k in REQUIRED:
         if len(d[k]) != n:
@@ -67,11 +70,33 @@ def assert_anchor_splits(train, val):
         raise ValueError(f"TRAIN/VAL anchor leakage: {len(a & b)} overlapping anchors")
 
 
+def assert_episode_splits(train, val):
+    """Episode-level isolation.
+
+    Anchor-id disjointness is NOT enough: several windows can be cut from the
+    same expert episode, so a train window and a val window of one episode would
+    still leak. When `source_episode_uid` is present, require disjoint episode
+    sets.
+    """
+    if "source_episode_uid" not in train or "source_episode_uid" not in val:
+        return None
+    a = set(np.asarray(train["source_episode_uid"]).astype(str).tolist())
+    b = set(np.asarray(val["source_episode_uid"]).astype(str).tolist())
+    if not a.isdisjoint(b):
+        raise ValueError(
+            "TRAIN/VAL source-episode leakage: "
+            f"{sorted(a & b)}"
+        )
+    return {"train_episodes": sorted(a), "val_episodes": sorted(b)}
+
+
 def to_tensors(data):
+    numeric = ("z0", "goal", "goal_is_upper", "plus", "minus",
+               "plus_cost", "minus_cost", "epsilon")
     return {
         k: torch.from_numpy(np.ascontiguousarray(v)).float()
         for k, v in data.items()
-        if k != "anchor_id"
+        if k in numeric
     }
 
 

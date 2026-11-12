@@ -12,7 +12,12 @@ import numpy as np
 import torch
 
 from ragc import RAGCConfig, RealizedAdvantageHead, paired_realized_advantage_loss
-from ragc_data import load_ragc_npz, assert_anchor_splits, to_tensors
+from ragc_data import (
+    load_ragc_npz,
+    assert_anchor_splits,
+    assert_episode_splits,
+    to_tensors,
+)
 
 
 def validate(head, tensors, device):
@@ -51,6 +56,7 @@ def main():
     data_train = load_ragc_npz(args.train)
     data_val = load_ragc_npz(args.val)
     assert_anchor_splits(data_train, data_val)
+    assert_episode_splits(data_train, data_val)
     train = to_tensors(data_train)
     val = to_tensors(data_val)
 
