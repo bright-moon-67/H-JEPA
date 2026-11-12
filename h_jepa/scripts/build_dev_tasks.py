@@ -20,49 +20,69 @@ import numpy as np
 import torch
 
 
+def parse_ids(spec):
+    out = []
+    for part in str(spec).split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if "-" in part:
+            a, b = part.split("-")
+            out.extend(range(int(a), int(b) + 1))
+        else:
+            out.append(int(part))
+    return out
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--h5", required=True)
     p.add_argument("--episodes", type=int, default=12)
+    p.add_argument("--episode-ids", default=None,
+                   help="explicit expert episode ids, e.g. 400-415 (skips --episodes)")
     p.add_argument("--offset", type=int, default=60)
     p.add_argument("--start-shift", type=int, default=7)
     p.add_argument("--out", required=True)
     args = p.parse_args()
 
     with h5py.File(args.h5, "r") as f:
-        pixels = f["pixels"][()]      # [N,224,224,3] uint8 HWC
-        states = f["state"][()]
-        proprio = f["proprio"][()]
-        actions = f["action"][()]
-        step_idx = f["step_idx"][()]
-        ep_len = f["ep_len"][()]
-        ep_off = f["ep_offset"][()]
-        episode_idx = f["episode_idx"][()]
-
-    data, starts = [], []
-    for e in range(min(args.episodes, len(ep_len))):
-        L = args.offset + 1
-        if ep_len[e] < L + 10:
-            continue
-        off = int(ep_off[e])
-        # Shift the start so windows differ from the official (75-offset) ones.
-        s = (args.start_shift + e * 3) % (int(ep_len[e]) - L - 1)
-        sl = slice(off + s, off + s + L)
-        px = np.transpose(pixels[sl], (0, 3, 1, 2))  # CHW
-        data.append({
-            "pixels": torch.from_numpy(np.ascontiguousarray(px)),
-            "state": torch.from_numpy(np.asarray(states[sl], np.float32)),
-            "proprio": torch.from_numpy(np.asarray(proprio[sl], np.float32)),
-            "action": torch.from_numpy(np.asarray(actions[sl], np.float32)),
-            "step_idx": torch.from_numpy(np.asarray(step_idx[sl], np.int64)),
-            "episode_idx": torch.from_numpy(np.asarray(episode_idx[sl], np.int64)),
-        })
-        starts.append(s)
+        ep_ids = (parse_ids(args.episode_ids) if args.episode_ids
+                  else list(range(min(args.episodes, len(f["ep_len"])))))
+        data, starts, kept = [], [], []
+        for e in ep_ids:
+            L = args.offset + 1
+            ep_len_e = int(f["ep_len"][e])
+            if ep_len_e < L + 10:
+                continue
+            off = int(f["ep_offset"][e])
+            s = (args.start_shift + e * 3) % (ep_len_e - L - 1)
+            sl = slice(off + s, off + s + L)
+            px = np.transpose(f["pixels"][sl], (0, 3, 1, 2))  # HWC -> CHW
+            data.append({
+                "pixels": torch.from_numpy(np.ascontiguousarray(px)),
+                "state": torch.from_numpy(
+                    np.asarray(f["state"][sl], np.float32)),
+                "proprio": torch.from_numpy(
+                    np.asarray(f["proprio"][sl], np.float32)),
+                "action": torch.from_numpy(
+                    np.asarray(f["action"][sl], np.float32)),
+                "step_idx": torch.from_numpy(
+                    np.asarray(f["step_idx"][sl], np.int64)),
+                "episode_idx": torch.from_numpy(
+                    np.asarray(f["episode_idx"][sl], np.int64)),
+                # Deterministic env reset: without this, `reset(seed=None)`
+                # samples a fresh variation (block/agent geometry) every run and
+                # two processes evaluating the same task diverge after contact.
+                "seed": np.int64(1000 + len(data)),
+            })
+            starts.append(int(s))
+            kept.append(int(e))
 
     payload = {
         "data": data,
-        "columns": ["action", "episode_idx", "pixels", "proprio", "state", "step_idx"],
-        "episodes_idx": list(range(len(data))),
+        "columns": ["action", "episode_idx", "pixels", "proprio", "state",
+                    "step_idx", "seed"],
+        "episodes_idx": kept,
         "start_steps": starts,
         "goal_offset_steps": int(args.offset),
         "eval_budget": 90,
@@ -71,7 +91,8 @@ def main():
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     torch.save(payload, out)
-    print(f"saved {out}: {len(data)} dev tasks, offset={args.offset}, starts={starts}")
+    print(f"saved {out}: {len(data)} tasks, offset={args.offset}, "
+          f"episodes={kept}, starts={starts}")
 
 
 if __name__ == "__main__":

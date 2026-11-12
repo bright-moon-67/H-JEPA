@@ -220,12 +220,20 @@ def _build_policy(
     policy_config = _build_policy_plan_config(cfg)
     solver = build_solver(cfg, model)
 
+    # Optional Feedback-N control: execute fewer Level-1 tokens than the planner
+    # produced, while the solver keeps its ORIGINAL receding_horizon schedule.
+    # Absent from the config -> None -> identical behaviour to upstream.
+    execution_rh = cfg.eval.get("execution_receding_horizon", None)
+
     return swm.policy.WorldModelPolicy(
         solver=solver,
         config=policy_config,
         process=process,
         transform=transform,
         eval_budget=int(cfg.eval.eval_budget),
+        execution_receding_horizon=(
+            None if execution_rh is None else int(execution_rh)
+        ),
     )
 
 

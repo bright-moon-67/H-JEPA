@@ -1,0 +1,1849 @@
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:41:23.089 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.3362 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8668 seconds.
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.1525 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4338 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.2560 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7148 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.4529 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3455 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9781 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4524 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9494 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5897 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.8388 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5083 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.5793 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5275 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 5.0659 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9212 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.1128 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4974 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.4240 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5942 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.2707 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5595 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5563 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3546 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5458 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4105 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.5732 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.3602 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.2412 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.5572 seconds.
+tasks 0-1: success_rate 0.0
+2026-11-12 10:42:44.756 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:42:44.757 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:42:44.757 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:42:44.757 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:42:44.757 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:42:44.757 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 5.6195 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3466 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.2063 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5029 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.5168 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3934 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.1236 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6048 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.8848 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3490 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.7292 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5035 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 4.6629 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5286 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.9472 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4482 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.7378 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6869 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.7318 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1232 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.5779 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.0551 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.3685 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8490 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 2.0869 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6173 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.7130 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1517 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.9509 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5088 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7770 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8344 seconds.
+tasks 1-2: success_rate 0.0
+2026-11-12 10:44:08.960 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:44:08.961 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:44:08.961 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:44:08.961 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:44:08.961 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:44:08.961 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.9280 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.0475 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.6947 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.4329 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.3569 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1119 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.9022 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3574 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9381 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4948 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.7699 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4097 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.7783 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4108 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.7348 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4266 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4488 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4277 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.7681 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5701 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.7119 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4331 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.7476 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4837 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 2.0154 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7036 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5270 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6470 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5741 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4392 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8027 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7792 seconds.
+tasks 2-3: success_rate 100.0
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:45:24.564 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 10.3552 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3446 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 9.1094 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3713 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.4340 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9428 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.3751 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.3107 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.5935 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5492 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.3802 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8245 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.2925 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6864 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.5879 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5288 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 5.6449 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4335 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 5.0370 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6222 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.2000 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4599 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.5238 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4049 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5216 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6015 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.7388 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1551 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1232 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4305 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8367 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8240 seconds.
+tasks 3-4: success_rate 100.0
+2026-11-12 10:47:01.361 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:47:01.362 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:47:01.362 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:47:01.362 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:47:01.362 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:47:01.362 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 8.1523 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4908 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.7547 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4864 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.8264 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3574 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.8053 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3591 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 4.9598 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4111 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.4548 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4910 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 5.1224 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5083 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 6.1342 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4875 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 6.2424 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 5.0797 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 4.5935 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3803 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.6269 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3685 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.4901 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3786 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5311 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6099 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.6382 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8203 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.7577 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 4.3355 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.5140 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.0641 seconds.
+tasks 4-5: success_rate 0.0
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:48:44.150 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.1919 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3454 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.6609 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3460 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.1605 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4315 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.9511 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4007 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.2294 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7742 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 7.2258 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6965 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 4.2796 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4991 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 5.7282 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4610 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 5.2647 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5065 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 4.7183 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3733 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.4122 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3610 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.4205 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9223 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 2.0883 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8319 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 2.0387 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6441 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.3993 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 4.3082 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.3111 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8149 seconds.
+tasks 5-6: success_rate 0.0
+2026-11-12 10:50:27.169 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:50:27.169 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:50:27.170 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:50:27.170 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:50:27.170 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:50:27.170 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.1472 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8679 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.6025 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8396 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.3537 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4020 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.2418 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4777 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 4.8863 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5264 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 5.1434 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3520 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.8316 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4857 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 5.2184 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4755 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 4.4365 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4968 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 4.8303 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5101 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.5731 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5578 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.4381 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.4821 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5449 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.0002 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5407 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.8556 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9740 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.1109 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7065 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.6717 seconds.
+tasks 6-7: success_rate 0.0
+2026-11-12 10:51:57.563 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:51:57.563 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:51:57.563 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:51:57.563 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:51:57.564 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:51:57.564 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 6.4443 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5271 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 6.7117 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.4889 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.8061 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7676 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.7771 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9093 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.0019 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5037 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 4.4655 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3474 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.6498 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4078 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 5.0913 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3527 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.7172 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9593 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 4.1456 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8297 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.7914 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5558 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.6114 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3311 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.4849 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6138 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5156 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5309 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.0886 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1438 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8329 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7405 seconds.
+tasks 7-8: success_rate 0.0
+2026-11-12 10:53:24.463 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:53:24.464 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:53:24.464 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:53:24.464 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:53:24.464 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:53:24.464 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 8.4765 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3975 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.5928 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4870 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.2717 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3718 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.6625 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3988 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 4.6672 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3540 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9785 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8347 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.7739 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5793 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.2958 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4437 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.0162 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3279 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4173 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.5523 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.2225 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.0533 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.1969 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7905 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.9139 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6499 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5215 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7971 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4221 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.2232 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.6800 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7274 seconds.
+tasks 8-9: success_rate 100.0
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:54:47.180 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 6.5323 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4003 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 5.3377 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3883 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.1489 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5134 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.2992 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5022 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.9535 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3968 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.0192 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.7244 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.1086 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3937 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.1515 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4013 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.8464 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7187 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.3731 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6602 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.7424 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 4.7438 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.4472 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8378 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.8565 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7670 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 2.0373 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7251 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8031 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6280 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8159 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8126 seconds.
+tasks 9-10: success_rate 100.0
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:56:13.958 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.8671 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6053 seconds.
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.9856 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3728 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.8427 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5782 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.5056 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5179 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.0357 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4528 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.1765 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.1626 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.7036 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3134 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.9090 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4758 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.9109 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8162 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.9643 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8793 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.7819 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5202 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.5697 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4675 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5817 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8404 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5545 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7212 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8497 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.0284 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7368 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8102 seconds.
+tasks 10-11: success_rate 100.0
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:57:33.070 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.8704 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4000 seconds.
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.3800 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5001 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.6559 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3601 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.6199 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3953 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 4.2395 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.5931 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9942 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3549 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.0112 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7320 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.8061 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9207 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.2402 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5562 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.7689 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4771 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.2128 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.2871 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.9125 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5949 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.6301 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8020 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5948 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4054 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5150 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.3503 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8374 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7889 seconds.
+tasks 11-12: success_rate 100.0
+2026-11-12 10:58:58.556 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 10:58:58.556 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 10:58:58.557 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 10:58:58.557 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 10:58:58.557 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 10:58:58.557 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.3218 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3971 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 8.9969 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3671 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.9383 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3817 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.8847 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3763 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.9072 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3562 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 6.2012 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3786 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.6732 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4621 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.4554 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3690 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.6683 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4156 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 2.7577 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4375 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.0456 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7358 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.1166 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.3860 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.7149 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.8587 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5868 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6510 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.5227 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4662 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7262 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8212 seconds.
+tasks 12-13: success_rate 0.0
+2026-11-12 11:00:29.466 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 11:00:29.466 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 11:00:29.466 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 11:00:29.467 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 11:00:29.467 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 11:00:29.467 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.0730 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3717 seconds.
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 5.0598 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4815 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 8.3986 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4549 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.9155 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6755 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.6722 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8832 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.0095 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1883 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.3396 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5522 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 7.7288 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 4.6622 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4527 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8489 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4803 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8988 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 4.6621 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4086 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.5147 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6360 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.8956 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.6320 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.6016 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8583 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.9975 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4215 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8396 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7363 seconds.
+tasks 13-14: success_rate 0.0
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 11:02:09.669 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 3.8326 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4003 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.5648 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3948 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.4422 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7469 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 5.2512 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3909 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.9097 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4234 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 3.4642 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5882 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.4921 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.1795 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 5.5931 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6254 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.0013 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8347 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4671 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5631 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.2804 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4870 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.8797 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5557 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5313 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5742 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.5453 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.5867 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.4839 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.2901 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.8467 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.7171 seconds.
+tasks 14-15: success_rate 0.0
+2026-11-12 11:03:32.269 | INFO     | stable_worldmodel.world:__init__:251 - 🌍🌍🌍 World swm/PushT-v1 initialized 🌍🌍🌍
+2026-11-12 11:03:32.269 | INFO     | stable_worldmodel.world:__init__:253 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-12 11:03:32.345 | INFO     | stable_worldmodel.world:__init__:254 - Box(-1.0, 1.0, (1, 2), float32)
+2026-11-12 11:03:32.345 | INFO     | stable_worldmodel.world:__init__:256 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-12 11:03:32.345 | INFO     | stable_worldmodel.world:__init__:257 - Dict('proprio': Box(0.0, 512.0, (1, 4), float64), 'state': Box(0.0, [[512.         512.         512.         512.           6.28318531
+  512.         512.        ]], (1, 7), float64))
+2026-11-12 11:03:32.345 | INFO     | stable_worldmodel.world:__init__:260 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(8)
+    start_position: Box(50.0, 450.0, (2,), float64)
+    velocity: Box(0.0, 512.0, (2,), float64)
+background:
+    color: Box(0, 255, (3,), uint8)
+block:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    scale: Box(20.0, 60.0, (), float32)
+    shape: Discrete(7, start=1)
+    start_position: Box(100.0, 400.0, (2,), float64)
+goal:
+    angle: Box(-6.283185307179586, 6.283185307179586, (), float64)
+    color: Box(0, 255, (3,), uint8)
+    position: Box(50.0, 450.0, (2,), float64)
+    scale: Box(20.0, 60.0, (), float32)
+rendering:
+    render_goal: Discrete(2)
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+policy call number: 1
+level 2 planning horizon: 8
+GradientSolver.solve completed in 4.8339 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5081 seconds.
+/opt/conda/envs/hjepa/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+policy call number: 2
+level 2 planning horizon: 8
+GradientSolver.solve completed in 7.8160 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3492 seconds.
+policy call number: 3
+level 2 planning horizon: 7
+GradientSolver.solve completed in 4.4782 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 3.6105 seconds.
+policy call number: 4
+level 2 planning horizon: 7
+GradientSolver.solve completed in 3.7575 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.9094 seconds.
+policy call number: 5
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9003 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7302 seconds.
+policy call number: 6
+level 2 planning horizon: 6
+GradientSolver.solve completed in 2.9198 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3531 seconds.
+policy call number: 7
+level 2 planning horizon: 5
+GradientSolver.solve completed in 3.5968 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3869 seconds.
+policy call number: 8
+level 2 planning horizon: 5
+GradientSolver.solve completed in 2.9235 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3555 seconds.
+policy call number: 9
+level 2 planning horizon: 4
+GradientSolver.solve completed in 5.8745 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.8505 seconds.
+policy call number: 10
+level 2 planning horizon: 4
+GradientSolver.solve completed in 3.4412 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3786 seconds.
+policy call number: 11
+level 2 planning horizon: 3
+GradientSolver.solve completed in 2.6909 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.6461 seconds.
+policy call number: 12
+level 2 planning horizon: 3
+GradientSolver.solve completed in 3.2719 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5983 seconds.
+policy call number: 13
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.4827 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.3511 seconds.
+policy call number: 14
+level 2 planning horizon: 2
+GradientSolver.solve completed in 1.7422 seconds.
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.5695 seconds.
+policy call number: 15
+level 1 planning horizon: 2
+GradientSolver.solve completed in 2.8733 seconds.
+policy call number: 16
+level 1 planning horizon: 2
+GradientSolver.solve completed in 1.7351 seconds.
+policy call number: 17
+level 1 planning horizon: 1
+GradientSolver.solve completed in 0.6929 seconds.
+policy call number: 18
+level 1 planning horizon: 1
+GradientSolver.solve completed in 1.4268 seconds.
+tasks 15-16: success_rate 0.0
+{'success_rate': 37.5, 'episode_successes': [False, False, True, True, False, False, False, False, True, True, True, True, False, False, False, False], 'seeds': None, 'wall_clock_to_success': [nan, nan, 73.36889708787203, 73.48070552945137, nan, nan, nan, nan, 78.86672496981919, 84.1336421482265, 76.96927113644779, 82.9387044236064, nan, nan, nan, nan], 'steps_to_success': [nan, nan, 80.0, 48.0, nan, nan, nan, nan, 75.0, 79.0, 80.0, 76.0, nan, nan, nan, nan], 'loaded_eval_original_lengths': [76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76], 'steps_to_success_success_only': 73.0, 'evaluation_time': 1416.242572069168, 'chunk_size': 1}

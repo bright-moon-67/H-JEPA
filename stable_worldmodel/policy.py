@@ -313,6 +313,7 @@ class WorldModelPolicy(BasePolicy):
         process: dict[str, Transformable] | None = None,
         transform: dict[str, Callable[[torch.Tensor], torch.Tensor]]
         | None = None,
+        execution_receding_horizon: int | None = None,
         **kwargs: Any,
     ) -> None:
         """Initialize the world model policy.
@@ -322,6 +323,12 @@ class WorldModelPolicy(BasePolicy):
             config: MPC planning configuration.
             process: Dictionary of data preprocessors for specific keys.
             transform: Dictionary of tensor transformations (e.g., image transforms).
+            execution_receding_horizon: Optional number of Level-1 action tokens to
+                EXECUTE before asking the solver again. ``None`` keeps the original
+                behaviour (``config.receding_horizon``), so the planner's horizon
+                schedule and the execution length stay coupled exactly as before.
+                Setting it to a smaller value only shortens execution, which
+                isolates 'how often the controller sees a real observation'.
             **kwargs: Additional configuration parameters.
         """
         super().__init__(**kwargs)
@@ -335,6 +342,30 @@ class WorldModelPolicy(BasePolicy):
         self.eval_budget: int | None = getattr(self, 'eval_budget', None)
         self._steps_taken = 0
         self._policy_call_count = 0
+
+        self._execution_receding_horizon = (
+            None
+            if execution_receding_horizon is None
+            else int(execution_receding_horizon)
+        )
+        if self._execution_receding_horizon is not None:
+            if not 1 <= self._execution_receding_horizon <= self.cfg.receding_horizon:
+                raise ValueError(
+                    'execution_receding_horizon must be between 1 and '
+                    f'{self.cfg.receding_horizon}, got '
+                    f'{self._execution_receding_horizon}'
+                )
+
+    @property
+    def execution_receding_horizon(self) -> int:
+        """Level-1 tokens executed before re-planning.
+
+        Defaults to the planner's ``receding_horizon`` so an unset parameter is a
+        strict no-op.
+        """
+        if self._execution_receding_horizon is None:
+            return self.cfg.receding_horizon
+        return self._execution_receding_horizon
 
     @property
     def execution_plan_config(self) -> PlanConfig:
@@ -351,9 +382,9 @@ class WorldModelPolicy(BasePolicy):
 
     @property
     def flatten_receding_horizon(self) -> int:
-        """Receding horizon in environment steps (with frameskip)."""
+        """Execution horizon in environment steps (with frameskip)."""
         plan_cfg = self.execution_plan_config
-        return self.cfg.receding_horizon * plan_cfg.action_block
+        return self.execution_receding_horizon * plan_cfg.action_block
 
     def set_env(self, env: Any) -> None:
         """Configure the policy and solver for the given environment.
@@ -415,7 +446,7 @@ class WorldModelPolicy(BasePolicy):
             )
 
             actions = outputs['actions']  # (num_envs, horizon, action_dim)
-            keep_horizon = min(self.cfg.receding_horizon, actions.shape[1])
+            keep_horizon = min(self.execution_receding_horizon, actions.shape[1])
             plan = actions[:, :keep_horizon]
 
             # frameskip back to timestep
