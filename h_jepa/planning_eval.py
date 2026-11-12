@@ -466,6 +466,13 @@ def run_planning_eval(
 
     chunk_size = cfg.eval.get("chunk_size", 1)  # resumable per chunk of N tasks; null: one World of all tasks
     if chunk_size and not dump_eval_only:
+        from antmaze_trace import resolve_trace_dir
+
+        if resolve_trace_dir(cfg, resolved_results_dir) is not None:
+            raise ValueError(
+                "eval.trace_dir requires eval.chunk_size=null (one World holds "
+                "all traced tasks; chunked evals would mix task indices)"
+            )
         if not load_eval_trajs_path:
             raise ValueError("eval.chunk_size needs load_eval_trajs_path (+eval.chunk_size=null to run unchunked)")
         return _run_chunked_eval(
@@ -475,9 +482,24 @@ def run_planning_eval(
 
     world = swm.World(**world_cfg, image_shape=image_shape)
 
+    tracer = None
+    trace_error = None
     try:
         policy = _build_policy(cfg, process, transform, model=model)
         world.set_policy(policy)
+
+        # Opt-in, behaviour-preserving trace logger (no-op when trace_dir is
+        # absent).  It only observes existing data and never touches the RNG.
+        from antmaze_trace import install_trace
+
+        tracer = install_trace(
+            cfg=cfg,
+            world=world,
+            policy=policy,
+            results_dir=resolved_results_dir,
+            load_eval_trajs_path=load_eval_trajs_path,
+            extra_meta=generation_provenance(),
+        )
 
         start_time = time.time()
         with torch.enable_grad(), sdpa_kernel(SDPBackend.MATH):
@@ -508,7 +530,12 @@ def run_planning_eval(
                 ),
             )
         end_time = time.time()
+    except Exception as exc:  # keep partial traces + a machine-readable reason
+        trace_error = f"{type(exc).__name__}: {exc}"
+        raise
     finally:
+        if tracer is not None:
+            tracer.finish(error=trace_error)
         world.close()
 
     if dump_eval_only:
