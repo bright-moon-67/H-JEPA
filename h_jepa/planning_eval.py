@@ -420,6 +420,10 @@ def run_planning_eval(
     model=None,
     results_dir: str | Path | None = None,
 ):
+    if os.environ.get("RAGC_DUMP"):
+        # opt-in action-trace instrumentation (no behavior change)
+        from ragc_dump import install
+        install()
     cfg = OmegaConf.create(OmegaConf.to_container(cfg, resolve=False))
     resolved_results_dir = resolve_results_dir(cfg, results_dir)
     resolved_results_dir.mkdir(parents=True, exist_ok=True)

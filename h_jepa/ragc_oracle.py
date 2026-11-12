@@ -46,29 +46,54 @@ def counterfactual_fingerprint(env):
     return np.r_[obs, vel, w]
 
 
-def restore_eval_anchor(env, *, seed, initial_state, goal_state, prefix_raw_actions):
-    """Recreate initial EVAL task then replay its ACTUAL completed actions.
+def clear_residual_motion(env):
+    """Zero velocities that `_set_state` does NOT restore.
 
-    Not equivalent to env.reset(options={'state':current_state}) at decision t.
+    `PushtEnv._set_state` writes only agent/block position and block angle, then
+    calls `space.step(dt)` once. Pymunk block linear/angular velocity therefore
+    carries over from whatever ran BEFORE the restore, which makes a
+    counterfactual anchor depend on branch order (measured drift ~0.4 units).
+    Official eval never audits this because it only runs one branch per env.
     """
-    obs, _ = env.reset(
-        seed=int(seed),
-        options={
-            "state": np.asarray(initial_state, dtype=np.float64),
-            "goal_state": np.asarray(goal_state, dtype=np.float64),
-        },
-    )
+    p = env.unwrapped
+    for obj in (getattr(p, "block", None), getattr(p, "agent", None)):
+        if obj is None:
+            continue
+        obj.velocity = (0.0, 0.0)
+        obj.angular_velocity = 0.0
+
+
+def restore_eval_anchor(env, *, initial_state, goal_state, prefix_raw_actions):
+    """Recreate the OFFICIAL eval setup, then replay its ACTUAL actions.
+
+    Official `World.evaluate_from_dataset` resets with seed=None and empty
+    options, then applies the eval callables `_set_state(state0)` and
+    `_set_goal_state(goal_state)`. It does NOT pass options={'state': ...} to
+    reset (that would add an extra hidden physics step from the sampled state).
+
+    Pymunk keeps contact/impulse warm-start state inside `space`, and
+    `_set_state` restores pos/angle but not block velocity, so reusing the env
+    across counterfactual branches makes the anchor depend on branch ORDER
+    (measured drift up to 1.4 units). A brand-new `space` per restore removes
+    that history and makes every branch start from a bit-identical anchor.
+    """
+    env.reset()
+    unwrapped = env.unwrapped
+    if hasattr(unwrapped, "_setup"):
+        unwrapped._setup()
+    clear_residual_motion(env)
+    unwrapped._set_state(np.asarray(initial_state, dtype=np.float64))
+    unwrapped._set_goal_state(np.asarray(goal_state, dtype=np.float64))
     for action in np.asarray(prefix_raw_actions, dtype=np.float32).reshape(-1, 2):
-        obs, _, _, _, _ = env.step(action)
-    return obs, counterfactual_fingerprint(env), np.asarray(env.render()).copy()
+        env.step(action)
+    return None, counterfactual_fingerprint(env), np.asarray(env.render()).copy()
 
 
 def simulate_candidate(
-    env, *, seed, initial_state, goal_state, prefix_raw_actions, raw_candidate,
+    env, *, initial_state, goal_state, prefix_raw_actions, raw_candidate,
 ):
     obs, before, rgb_before = restore_eval_anchor(
         env,
-        seed=seed,
         initial_state=initial_state,
         goal_state=goal_state,
         prefix_raw_actions=prefix_raw_actions,
