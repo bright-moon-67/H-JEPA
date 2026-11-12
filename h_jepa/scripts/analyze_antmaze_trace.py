@@ -151,6 +151,10 @@ def cos(a, b):
 def analyze_task(task, step_recs, plan_recs, maze_map, maze_unit, start_ij, goal_ij):
     ts = np.array([r["t"] for r in step_recs])
     xy = np.array([r["xy"] if r["xy"] is not None else [np.nan, np.nan] for r in step_recs])
+    goal_xy = np.asarray(
+        step_recs[0].get("goal_xy") or [np.nan, np.nan], dtype=np.float64
+    )[:2]
+    dxy = np.linalg.norm(xy - goal_xy[None, :], axis=1)
     qpos = np.array([r["qpos"] if r["qpos"] is not None else [] for r in step_recs])
     success_idx = next((i for i, r in enumerate(step_recs) if r["terminated"] or r["success"]), None)
 
@@ -171,6 +175,7 @@ def analyze_task(task, step_recs, plan_recs, maze_map, maze_unit, start_ij, goal
     progress_ratio = None if not d0 else (progress / d0 if d0 > 0 else 1.0)
 
     xy_eval = xy[horizon_slice]
+    dxy_eval = dxy[horizon_slice]
     stag_start, stag_len = detect_stagnation(xy_eval)
     disp = np.linalg.norm(np.diff(xy_eval, axis=0), axis=1) if len(xy_eval) > 1 else np.array([])
 
@@ -250,6 +255,13 @@ def analyze_task(task, step_recs, plan_recs, maze_map, maze_unit, start_ij, goal
     elif min_z is not None and fallen_steps >= 20:
         cls = "B"
         reason = f"fallen/low posture for {fallen_steps} steps (min z={min_z:.2f})"
+    elif dmin is not None and dmin == 0 and not success_idx:
+        # Inside the goal cell but never crossed the 1.0 m success tolerance.
+        cls = "B"
+        reason = (
+            "entered the goal cell but stayed outside the success tolerance "
+            f"(min |xy-goal|={float(np.nanmin(dxy_eval)):.2f})"
+        )
     elif dmin is not None and dmin <= 1 and stag_len >= 10:
         cls = "B"
         reason = "reached the goal cell vicinity but could not finish"
@@ -279,6 +291,10 @@ def analyze_task(task, step_recs, plan_recs, maze_map, maze_unit, start_ij, goal
             "final": dfinal,
             "progress": progress,
             "progress_ratio": progress_ratio,
+        },
+        "dist_to_goal_xy": {
+            "min": float(np.nanmin(dxy_eval)) if len(dxy_eval) else None,
+            "final": float(dxy_eval[-1]) if len(dxy_eval) else None,
         },
         "stagnation": {
             "longest_steps": int(stag_len),

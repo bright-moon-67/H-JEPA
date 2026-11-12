@@ -1,0 +1,118 @@
+{
+ "format": "antmaze_trace_audit_summary_v1",
+ "runs": {
+  "original_w1": {
+   "success_rate": 61.53846153846154,
+   "n": 13,
+   "seeds": null
+  },
+  "unseeded_replay": {
+   "success_rate": 46.15384615384615,
+   "env_seed": null
+  },
+  "seeded_replay": {
+   "success_rate": 61.53846153846154,
+   "env_seed": 1000
+  }
+ },
+ "cross_run": {
+  "13": {
+   "original_w1_success": false,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "14": {
+   "original_w1_success": true,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "15": {
+   "original_w1_success": false,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": false,
+   "seeded_class": "A"
+  },
+  "16": {
+   "original_w1_success": false,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": false,
+   "seeded_class": "B"
+  },
+  "17": {
+   "original_w1_success": true,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "18": {
+   "original_w1_success": true,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "19": {
+   "original_w1_success": true,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": false,
+   "seeded_class": "B"
+  },
+  "20": {
+   "original_w1_success": true,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "21": {
+   "original_w1_success": false,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "22": {
+   "original_w1_success": false,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": false,
+   "seeded_class": "A"
+  },
+  "23": {
+   "original_w1_success": true,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  },
+  "24": {
+   "original_w1_success": true,
+   "unseeded_replay_success": false,
+   "seeded_replay_success": false,
+   "seeded_class": "B"
+  },
+  "25": {
+   "original_w1_success": true,
+   "unseeded_replay_success": true,
+   "seeded_replay_success": true,
+   "seeded_class": "success"
+  }
+ },
+ "fail_all_three_runs": [
+  15,
+  22
+ ],
+ "seeded_failures": [
+  15,
+  16,
+  19,
+  22,
+  24
+ ],
+ "unseeded_failures": [
+  13,
+  14,
+  15,
+  19,
+  21,
+  22,
+  24
+ ]
+}

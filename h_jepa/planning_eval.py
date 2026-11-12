@@ -374,6 +374,7 @@ def _run_chunked_eval(
         try:
             world.set_policy(policy)
             t0 = time.time()
+            env_seed = cfg.eval.get("env_seed", None)
             with torch.enable_grad(), sdpa_kernel(SDPBackend.MATH):
                 metrics = world.evaluate_from_dataset(
                     None,
@@ -386,6 +387,9 @@ def _run_chunked_eval(
                     process=process,
                     start_state_mode=cfg.eval.get("start_state_mode", "dataset_full"),
                     goal_state_mode=cfg.eval.get("goal_state_mode", "dataset_full"),
+                    env_seed=(
+                        None if env_seed is None else int(env_seed) + int(start)
+                    ),
                 )
             metrics["evaluation_time"] = time.time() - t0
         finally:
@@ -527,6 +531,11 @@ def run_planning_eval(
                 ),
                 goal_state_mode=cfg.eval.get(
                     "goal_state_mode", "dataset_full"
+                ),
+                env_seed=(
+                    None
+                    if cfg.eval.get("env_seed", None) is None
+                    else int(cfg.eval.get("env_seed"))
                 ),
             )
         end_time = time.time()

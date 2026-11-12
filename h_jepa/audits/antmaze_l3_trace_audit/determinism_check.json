@@ -1,0 +1,24 @@
+{
+ "episode_successes_equal": true,
+ "success_rate_equal": true,
+ "steps_to_success_equal": true,
+ "seeds": [
+  [
+   1000,
+   1001,
+   1002
+  ],
+  [
+   1000,
+   1001,
+   1002
+  ]
+ ],
+ "steps_sha256": [
+  "c0cd053d6cfaae300fd156fd1d3f226d682559045a0d388b738adb2effa667b1",
+  "c0cd053d6cfaae300fd156fd1d3f226d682559045a0d388b738adb2effa667b1"
+ ],
+ "planning_equal": true,
+ "steps_equal": true,
+ "passed": true
+}

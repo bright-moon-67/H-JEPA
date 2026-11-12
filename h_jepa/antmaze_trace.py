@@ -637,6 +637,7 @@ def install_trace(
         "policy": str(_cfg_get(cfg, "policy", "")),
         "eval_budget": _cfg_get(eval_cfg, "eval_budget", None),
         "num_eval": _cfg_get(eval_cfg, "num_eval", None),
+        "env_seed": _cfg_get(eval_cfg, "env_seed", None),
         **_maze_meta(world),
         **(extra_meta or {}),
     }
