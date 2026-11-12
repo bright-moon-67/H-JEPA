@@ -1,0 +1,262 @@
+{
+ "file": "dev_grid_d3_n12_seed20261113.pt",
+ "sha256": "0b954edce93c451d32553525d265b91ec9e85e31c19c2ac944280803e96383fa",
+ "seed": 20261113,
+ "distance": 3,
+ "num_episodes": 12,
+ "maze_type": "medium",
+ "tasks": [
+  {
+   "episode_idx": 0,
+   "grid_distance": 3,
+   "start_ij": [
+    2,
+    2
+   ],
+   "goal_ij": [
+    3,
+    4
+   ],
+   "requested_start_xy": [
+    4.0,
+    4.0
+   ],
+   "requested_goal_xy": [
+    12.0,
+    8.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 1,
+   "grid_distance": 3,
+   "start_ij": [
+    5,
+    3
+   ],
+   "goal_ij": [
+    4,
+    5
+   ],
+   "requested_start_xy": [
+    8.0,
+    16.0
+   ],
+   "requested_goal_xy": [
+    16.0,
+    12.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 2,
+   "grid_distance": 3,
+   "start_ij": [
+    4,
+    1
+   ],
+   "goal_ij": [
+    6,
+    2
+   ],
+   "requested_start_xy": [
+    0.0,
+    12.0
+   ],
+   "requested_goal_xy": [
+    4.0,
+    20.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 3,
+   "grid_distance": 3,
+   "start_ij": [
+    6,
+    2
+   ],
+   "goal_ij": [
+    4,
+    1
+   ],
+   "requested_start_xy": [
+    4.0,
+    20.0
+   ],
+   "requested_goal_xy": [
+    0.0,
+    12.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 4,
+   "grid_distance": 3,
+   "start_ij": [
+    5,
+    1
+   ],
+   "goal_ij": [
+    6,
+    3
+   ],
+   "requested_start_xy": [
+    0.0,
+    16.0
+   ],
+   "requested_goal_xy": [
+    8.0,
+    20.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 5,
+   "grid_distance": 3,
+   "start_ij": [
+    4,
+    5
+   ],
+   "goal_ij": [
+    2,
+    4
+   ],
+   "requested_start_xy": [
+    16.0,
+    12.0
+   ],
+   "requested_goal_xy": [
+    12.0,
+    4.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 6,
+   "grid_distance": 3,
+   "start_ij": [
+    3,
+    4
+   ],
+   "goal_ij": [
+    2,
+    2
+   ],
+   "requested_start_xy": [
+    12.0,
+    8.0
+   ],
+   "requested_goal_xy": [
+    4.0,
+    4.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 7,
+   "grid_distance": 3,
+   "start_ij": [
+    1,
+    2
+   ],
+   "goal_ij": [
+    3,
+    3
+   ],
+   "requested_start_xy": [
+    4.0,
+    0.0
+   ],
+   "requested_goal_xy": [
+    8.0,
+    8.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 8,
+   "grid_distance": 3,
+   "start_ij": [
+    5,
+    3
+   ],
+   "goal_ij": [
+    3,
+    4
+   ],
+   "requested_start_xy": [
+    8.0,
+    16.0
+   ],
+   "requested_goal_xy": [
+    12.0,
+    8.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 9,
+   "grid_distance": 3,
+   "start_ij": [
+    2,
+    5
+   ],
+   "goal_ij": [
+    3,
+    3
+   ],
+   "requested_start_xy": [
+    16.0,
+    4.0
+   ],
+   "requested_goal_xy": [
+    8.0,
+    8.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 10,
+   "grid_distance": 3,
+   "start_ij": [
+    3,
+    4
+   ],
+   "goal_ij": [
+    5,
+    3
+   ],
+   "requested_start_xy": [
+    12.0,
+    8.0
+   ],
+   "requested_goal_xy": [
+    8.0,
+    16.0
+   ],
+   "maze_unit": 4.0
+  },
+  {
+   "episode_idx": 11,
+   "grid_distance": 3,
+   "start_ij": [
+    2,
+    4
+   ],
+   "goal_ij": [
+    4,
+    5
+   ],
+   "requested_start_xy": [
+    12.0,
+    4.0
+   ],
+   "requested_goal_xy": [
+    16.0,
+    12.0
+   ],
+   "maze_unit": 4.0
+  }
+ ]
+}

@@ -55,6 +55,9 @@ def main() -> int:
     ap.add_argument('--batch-size', type=int, default=16,
                     help='每个 worker 内部 solver 的 batch_size')
     ap.add_argument('--seed', type=int, default=42)
+    ap.add_argument('--env-seed-base', type=int, default=None,
+                    help='确定性环境种子基数：每个任务用 env_seed_base + 全局任务 ID；'
+                         '不传则保持旧的随机 settle 行为')
     ap.add_argument('--trajs', default='assets/eval_trajs/pusht/goal_offset_75_val.pt')
     ap.add_argument('--out', default=None, help='结果根目录(相对 checkpoint 目录)')
     args = ap.parse_args()
@@ -78,6 +81,7 @@ def main() -> int:
           f'levels={levels}')
 
     procs, slice_paths = [], []
+    manifest_workers = []
     for k, (off, size) in enumerate(zip(offsets, sizes)):
         sl = dict(payload)
         sl['data'] = [dict(ep) for ep in payload['data'][off:off + size]]
@@ -86,6 +90,17 @@ def main() -> int:
         sp = tmpdir / f'slice_{k}.pt'
         torch.save(sl, sp)
         slice_paths.append(sp)
+
+        task_ids = [int(x) for x in sl['episodes_idx']] if sl.get('episodes_idx') is not None else list(range(off, off + size))
+        manifest_workers.append({
+            'worker': k,
+            'tasks': task_ids,
+            'planner_seed': args.seed + off,
+            'env_seed_by_task': (
+                None if args.env_seed_base is None
+                else {str(t): args.env_seed_base + t for t in task_ids}
+            ),
+        })
 
         overrides = [
             f'--config-name={args.config_name}',
@@ -96,6 +111,8 @@ def main() -> int:
             f'load_eval_trajs_path={sp}',
             f'policy={args.policy}',
         ]
+        if args.env_seed_base is not None:
+            overrides.append(f'+eval.env_seed={args.env_seed_base}')
         overrides += [f'solver.solvers.{lv}.batch_size={args.batch_size}'
                       for lv in levels]
         log = tmpdir / f'worker_{k}.log'
@@ -140,7 +157,25 @@ def main() -> int:
         {'success_rate': rate, 'episode_successes': [bool(x) for x in succ],
          'num_tasks': n, 'workers': args.workers, 'batch_size': args.batch_size,
          'worker_seconds': times}, sort_keys=False))
+
+    manifest = {
+        'format': 'parallel_eval_manifest_v1',
+        'config_name': args.config_name,
+        'policy': str(Path(args.policy).resolve()),
+        'trajs': str(Path(args.trajs).resolve()),
+        'workers': args.workers,
+        'batch_size': args.batch_size,
+        'planner_seed': args.seed,
+        'env_seed_base': args.env_seed_base,
+        'per_worker': manifest_workers,
+        'git_commit': subprocess.run(
+            ['git', 'rev-parse', 'HEAD'], cwd=HERE, capture_output=True, text=True
+        ).stdout.strip(),
+    }
+    manifest_path = ckpt_dir / out / 'manifest.json'
+    manifest_path.write_text(json.dumps(manifest, indent=1))
     print(f'合并结果 → {combined}')
+    print(f'运行清单 → {manifest_path}')
     return 0
 
 

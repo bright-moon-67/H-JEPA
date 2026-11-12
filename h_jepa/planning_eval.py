@@ -387,9 +387,9 @@ def _run_chunked_eval(
                     process=process,
                     start_state_mode=cfg.eval.get("start_state_mode", "dataset_full"),
                     goal_state_mode=cfg.eval.get("goal_state_mode", "dataset_full"),
-                    env_seed=(
-                        None if env_seed is None else int(env_seed) + int(start)
-                    ),
+                    # Per-task seed = env_seed + global task id (handled inside
+                    # evaluate_from_dataset); chunks keep the same mapping.
+                    env_seed=None if env_seed is None else int(env_seed),
                 )
             metrics["evaluation_time"] = time.time() - t0
         finally:
@@ -503,6 +503,7 @@ def run_planning_eval(
             results_dir=resolved_results_dir,
             load_eval_trajs_path=load_eval_trajs_path,
             extra_meta=generation_provenance(),
+            process=process,
         )
 
         start_time = time.time()

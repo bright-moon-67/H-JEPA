@@ -33,6 +33,7 @@ they are *not* decoded to XY.  Only the chosen plan is stored, never the
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import time
@@ -86,6 +87,16 @@ def _flatten_to_1d(value: Any) -> np.ndarray | None:
     if arr is None:
         return None
     return np.asarray(arr, dtype=np.float64).reshape(-1)
+
+
+def _env_item(infos: dict, key: str, i: int):
+    value = infos.get(key)
+    if value is None:
+        return None
+    try:
+        return value[i]
+    except Exception:
+        return value
 
 
 def _bucket_vector(tensor) -> list[float] | None:
@@ -162,6 +173,7 @@ class AntMazeTrace:
         task_ids: list[int] | None = None,
         replanning_interval: int = 10,
         meta: dict | None = None,
+        action_scaler=None,
     ) -> None:
         self.out_dir = Path(out_dir)
         self.out_dir.mkdir(parents=True, exist_ok=True)
@@ -172,6 +184,7 @@ class AntMazeTrace:
         self.task_ids = list(task_ids) if task_ids is not None else None
         self.replanning_interval = max(1, int(replanning_interval))
         self.meta = dict(meta or {})
+        self._action_scaler = action_scaler
 
         self._n_envs: int | None = None
         self._step = 0
@@ -339,6 +352,7 @@ class AntMazeTrace:
                 "qpos": _flatten_to_1d(infos.get("qpos")[i]) if "qpos" in infos else None,
                 "qvel": _flatten_to_1d(infos.get("qvel")[i]) if "qvel" in infos else None,
                 "action": _flatten_to_1d(action),
+                "action_norm": self._normalized_action(action),
                 "success": bool(
                     np.asarray(infos["success"]).reshape(-1)[i]
                     if "success" in infos
@@ -348,9 +362,38 @@ class AntMazeTrace:
                 "terminated": bool(terminated),
                 "truncated": bool(truncated),
             }
+            if record["t"] == 0:
+                # One-off fingerprints of the state the planner actually sees.
+                record["hashes"] = {
+                    "qpos": _sha256_value(_env_item(infos, "qpos", i)),
+                    "qvel": _sha256_value(_env_item(infos, "qvel", i)),
+                    "xy": _sha256_value(_env_item(infos, "xy", i)),
+                    "goal_xy": _sha256_value(_env_item(infos, "goal_xy", i)),
+                    "pixels": _sha256_value(_env_item(infos, "pixels", i)),
+                    "goal_pixels": _sha256_value(
+                        _env_item(infos, "goal", i)
+                    ),
+                }
             self._write(self._step_fh, record)
             self._task_steps[record["task"]].append(record)
             self._n_step_records += 1
+
+    def _normalized_action(self, action) -> list[float] | None:
+        """Reconstruct the model-space action from the applied one.
+
+        ``WorldModelPolicy.get_action`` applies ``inverse_transform`` before
+        returning; applying the forward transform again recovers the planner's
+        normalized action up to float round-off.
+        """
+        if self._action_scaler is None or action is None:
+            return None
+        arr = _as_numpy(action)
+        if arr is None:
+            return None
+        try:
+            return self._action_scaler.transform(arr.reshape(1, -1))[0].tolist()
+        except Exception:
+            return None
 
     def _record_planning(self, solver, level: int, args, kwargs, out, before) -> None:
         info_dict = kwargs.get("info_dict")
@@ -560,6 +603,24 @@ def resolve_trace_dir(cfg, results_dir: str | Path) -> Path | None:
     return path
 
 
+def _sha256_value(value) -> str | None:
+    arr = _as_numpy(value)
+    if arr is None:
+        return None
+    return hashlib.sha256(np.ascontiguousarray(arr).tobytes()).hexdigest()
+
+
+def _sha256_file(path: str | Path, chunk: int = 1 << 20) -> str | None:
+    p = Path(path)
+    if not p.is_file():
+        return None
+    h = hashlib.sha256()
+    with p.open("rb") as fh:
+        for block in iter(lambda: fh.read(chunk), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
 def _cfg_get(obj, name: str, default=None):
     try:
         if hasattr(obj, "get"):
@@ -603,6 +664,7 @@ def install_trace(
     results_dir: str | Path,
     load_eval_trajs_path: str | Path | None = None,
     extra_meta: dict | None = None,
+    process: dict | None = None,
 ) -> AntMazeTrace | None:
     """Install the tracer when ``eval.trace_dir`` is set. Returns None otherwise."""
     out_dir = resolve_trace_dir(cfg, results_dir)
@@ -633,11 +695,41 @@ def install_trace(
             replanning_interval = 1
 
     eval_cfg = _cfg_get(cfg, "eval", {}) or {}
+    solver = getattr(policy, "solver", None)
+    level_solvers = getattr(solver, "level_solvers", None) or (
+        {str(getattr(solver, "level", 1)): solver} if solver is not None else {}
+    )
+    planner_seeds = {}
+    batch_sizes = {}
+    for level, level_solver in level_solvers.items():
+        gen = getattr(level_solver, "torch_gen", None)
+        if gen is not None:
+            planner_seeds[str(level)] = int(gen.initial_seed())
+        if getattr(level_solver, "batch_size", None) is not None:
+            batch_sizes[str(level)] = int(level_solver.batch_size)
+
+    env_seed = _cfg_get(eval_cfg, "env_seed", None)
+    env_seed_by_task = None
+    if env_seed is not None and task_ids is not None:
+        env_seed_by_task = {str(t): int(env_seed) + int(t) for t in task_ids}
+
+    n_envs = int(getattr(world, "num_envs", 0) or 0)
+    env_to_batch = None
+    if n_envs and batch_sizes:
+        batch_size = int(next(iter(batch_sizes.values())))
+        env_to_batch = [i // max(1, batch_size) for i in range(n_envs)]
+
+    policy_path = str(_cfg_get(cfg, "policy", ""))
     meta = {
-        "policy": str(_cfg_get(cfg, "policy", "")),
+        "policy": policy_path,
+        "checkpoint_sha256": _sha256_file(policy_path) if policy_path else None,
         "eval_budget": _cfg_get(eval_cfg, "eval_budget", None),
         "num_eval": _cfg_get(eval_cfg, "num_eval", None),
-        "env_seed": _cfg_get(eval_cfg, "env_seed", None),
+        "env_seed": env_seed,
+        "env_seed_by_task": env_seed_by_task,
+        "planner_seeds": planner_seeds,
+        "batch_size_by_level": batch_sizes,
+        "env_to_batch": env_to_batch,
         **_maze_meta(world),
         **(extra_meta or {}),
     }
@@ -649,6 +741,7 @@ def install_trace(
         task_ids=task_ids,
         replanning_interval=replanning_interval,
         meta=meta,
+        action_scaler=(process or {}).get("action"),
     )
     tracer.begin()
     tracer.attach(world, policy)

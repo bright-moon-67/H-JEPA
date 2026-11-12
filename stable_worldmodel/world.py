@@ -1069,14 +1069,22 @@ class World:
         # get dataset info
         seeds = init_step.get('seed')
         if env_seed is not None:
-            # Opt-in reproducible eval: a fixed per-env seed for reset() *and*
+            # Opt-in reproducible eval: a fixed per-task seed for reset() *and*
             # for each env's action-space RNG.  ``settled_info_from_xy`` uses
             # ``action_space.sample()`` for its settle steps, and gymnasium
             # does not seed that space in reset(), so without this the start
             # state differs between two processes with identical configs.
-            seeds = [int(env_seed) + i for i in range(self.num_envs)]
+            #
+            # The seed is derived from the *global* task id, not the local env
+            # index, so the same task gets the same initial physical state no
+            # matter which worker / slice it lands in.
+            if len(ep_idx_arr) == self.num_envs:
+                global_ids = [int(x) for x in ep_idx_arr]
+            else:  # pragma: no cover - guarded by the checks above
+                global_ids = list(range(self.num_envs))
+            seeds = [int(env_seed) + gid for gid in global_ids]
             for i, env in enumerate(self.envs.unwrapped.envs):
-                env.action_space.seed(int(env_seed) + i)
+                env.action_space.seed(int(seeds[i]))
         # get dataset variation
         vkey = 'variation.'
         variations_dict = {
