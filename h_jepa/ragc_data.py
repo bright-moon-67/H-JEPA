@@ -37,7 +37,8 @@ def load_ragc_npz(path):
         d = {k: f[k] for k in REQUIRED}
         # Optional provenance / audit fields (never used as training targets).
         for extra in ("source_episode_uid", "task_uid", "baseline_success",
-                      "astar_cost", "plus_success", "minus_success"):
+                      "astar_cost", "plus_success", "minus_success",
+                      "astar_actions", "has_astar_actions"):
             if extra in f:
                 d[extra] = f[extra]
     n = len(d["anchor_id"])

@@ -1,0 +1,28 @@
+{
+  "need": {
+    "train_fail": 6,
+    "val_success": 6
+  },
+  "got": {
+    "train_fail": 6,
+    "val_success": 6
+  },
+  "n_new_valid": 12,
+  "episodes_used": [
+    "train_ep0051",
+    "train_ep0053",
+    "train_ep0054",
+    "train_ep0058",
+    "train_ep0059",
+    "train_ep0061",
+    "train_ep0101",
+    "train_ep0103",
+    "train_ep0104",
+    "train_ep0105",
+    "train_ep0106",
+    "train_ep0115"
+  ],
+  "epsilon": 0.3,
+  "directions": 2,
+  "goal_offset": 75
+}

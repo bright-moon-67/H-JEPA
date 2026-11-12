@@ -46,7 +46,12 @@ def rebuild_npz(records, out_dir):
             continue
         flat = []
         for r in rows:
-            for p in r["pairs"]:
+            for pair_idx, p in enumerate(r["pairs"]):
+                # Each pair owns TWO of the four candidate results. Reusing
+                # candidate_successes[0:2] for every pair silently copies the
+                # first direction's success labels onto the second one.
+                plus_ok = bool(r["candidate_successes"][2 * pair_idx])
+                minus_ok = bool(r["candidate_successes"][2 * pair_idx + 1])
                 flat.append({
                     "anchor_id": np.int64(r["anchor_id"]),
                     "z0": np.asarray(r["z0"], np.float32),
@@ -61,16 +66,21 @@ def rebuild_npz(records, out_dir):
                     "task_uid": np.asarray(r["task_uid"]),
                     "baseline_success": np.bool_(r["baseline_success"]),
                     "astar_cost": np.float32(r["astar_cost"]),
-                    "plus_success": np.bool_(r["candidate_successes"][0]
-                                             if len(r["candidate_successes"]) > 0
-                                             else False),
-                    "minus_success": np.bool_(r["candidate_successes"][1]
-                                              if len(r["candidate_successes"]) > 1
-                                              else False),
+                    "plus_success": np.bool_(plus_ok),
+                    "minus_success": np.bool_(minus_ok),
+                    "astar_actions": np.asarray(r["astar_actions"], np.float32)
+                        if r.get("astar_actions") is not None
+                        else np.zeros_like(np.asarray(p["plus"], np.float32)),
+                    "has_astar_actions": np.bool_(r.get("astar_actions") is not None),
                 })
         keys = list(flat[0].keys())
-        ds = {k: np.stack([f[k] for f in flat]) for k in keys}
+        ds = {k: np.stack([f[k] for f in flat]) for k in keys
+              if k not in ("astar_actions", "has_astar_actions")}
         ds["label_source"] = np.asarray("baseline_continuation")
+        # A* tokens are kept separately (object array) because they are not the
+        # training target; the offline decision test uses them.
+        ds["astar_actions"] = np.stack([f["astar_actions"] for f in flat])
+        ds["has_astar_actions"] = np.stack([f["has_astar_actions"] for f in flat])
         p = Path(out_dir) / f"{split}.npz"
         np.savez_compressed(p, **ds)
         made[split] = (p, ds)

@@ -119,6 +119,29 @@ def first_divergence(a, b, atol=1e-6):
     return -1
 
 
+def replay_gate(*, fp_maxdiff, div, success_equal, rgb_equal, tol=1e-7):
+    """Hard validity gate for the original-action (A*) replay branch.
+
+    Returns (ok, reason).  The hidden-physics fingerprint is part of the gate:
+    perturbed branches are only meaningful when the restored anchor matches the
+    state the policy actually planned from.  Keeping this as a pure function
+    makes the criterion testable without a simulator.
+    """
+    fp_ok = bool(np.isfinite(fp_maxdiff)) and float(fp_maxdiff) <= tol
+    problems = []
+    if not fp_ok:
+        problems.append(f"fp_maxdiff={fp_maxdiff:.3e}")
+    if div != -1:
+        problems.append(f"actions differ at step {div}")
+    if not rgb_equal:
+        problems.append("anchor RGB differs")
+    if not success_equal:
+        problems.append("A* success != baseline success")
+    if problems:
+        return False, "strict baseline replay mismatch: " + "; ".join(problems)
+    return True, ""
+
+
 @dataclass
 class TaskSpec:
     """One evaluation-style task window."""
@@ -445,17 +468,17 @@ class RAGCOracleCollector:
             replay_executed_steps=int(len(results[0]["raw_executed"])),
             replay_expected_steps=int(len(remaining)),
         )
-        if div != -1 or not success_equal or not rgb_equal:
-            base.update(
-                valid=False,
-                invalid_reason=(
-                    "replay divergence: "
-                    + (f"actions differ at step {div}; " if div != -1 else "")
-                    + ("" if rgb_equal else "anchor RGB differs; ")
-                    + ("" if success_equal else
-                       f"A* success {results[0]['success']} != baseline {trace['success']}")
-                ).strip(),
-            )
+        # Hidden-physics agreement is part of the HARD validity gate: the
+        # counterfactual branches are only meaningful if the restored anchor
+        # matches the state the policy actually planned from.
+        ok, reason = replay_gate(
+            fp_maxdiff=replay_fp_maxdiff,
+            div=div,
+            success_equal=success_equal,
+            rgb_equal=rgb_equal,
+        )
+        if not ok:
+            base.update(valid=False, invalid_reason=reason)
             return base
 
         costs = np.asarray([r["score"] for r in results], np.float64)
@@ -475,6 +498,7 @@ class RAGCOracleCollector:
         base.update(
             valid=True,
             invalid_reason="",
+            astar_actions=np.asarray(a0, np.float32).tolist(),
             z0=z0.tolist(),
             goal_emb=goal_emb.tolist(),
             goal_is_upper=upper,
