@@ -53,6 +53,14 @@ class HierarchicalSolver:
         self._n_envs: int | None = None
         self._action_dim: int | None = None
         self._config: Any = None
+        # Optional Stage-2 discrete action selector (default: disabled).
+        # It only post-processes the level-1 plan of the FIRST planning call
+        # and falls back to the original actions whenever a guard fails.
+        self.ragc_selector: Any = None
+
+    def set_ragc_selector(self, selector: Any) -> None:
+        """Attach a discrete action selector (or ``None`` to disable)."""
+        self.ragc_selector = selector
 
     def configure(self, *, action_space: gym.Space, n_envs: int, config: Any) -> None:
         """Configure all child solvers with shared environment settings."""
@@ -212,8 +220,19 @@ class HierarchicalSolver:
             skipped_goal_level = None
             subgoal_latents = result['predictions']['predicted_embed_0']
             subgoal_actions = result['actions']
+            if level == 1:
+                level1_info = level_info
 
-        return {'actions': result['actions']}
+        actions = result['actions']
+        if self.ragc_selector is not None:
+            actions = self.ragc_selector.select(
+                solver=self.level_solvers[1],
+                level_info=level1_info,
+                original_actions=actions,
+                steps_taken=steps_taken,
+            )
+
+        return {'actions': actions}
 
     def _level_plan_config(self, level: int) -> Any:
         """Return planning config for a specific hierarchy level."""

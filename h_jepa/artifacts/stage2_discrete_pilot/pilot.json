@@ -1,0 +1,237 @@
+{
+  "summary": {
+    "n_tasks": 12,
+    "baseline_success": 4,
+    "discrete_success": 3,
+    "rescued": 0,
+    "destroyed": 1,
+    "net": -1,
+    "n_switched": 2,
+    "equivalence_checks": [
+      {
+        "task": "pilot:ep0303:off75:s2",
+        "check1_selector_off": true,
+        "check2_forced_no_switch": true
+      },
+      {
+        "task": "pilot:ep0304:off75:s5",
+        "check1_selector_off": true,
+        "check2_forced_no_switch": true
+      }
+    ],
+    "config": {
+      "epsilon": 0.3,
+      "directions": 2,
+      "margin": 0.05,
+      "max_regression": 0.1,
+      "goal_offset": 75,
+      "episodes": "303-314"
+    }
+  },
+  "rows": [
+    {
+      "task": "pilot:ep0303:off75:s2",
+      "episode": "train_ep0303",
+      "start_step": 2,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.03134417533874512,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0304:off75:s5",
+      "episode": "train_ep0304",
+      "start_step": 5,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.0075795650482177734,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0305:off75:s8",
+      "episode": "train_ep0305",
+      "start_step": 8,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "original_actions_illegal": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": null,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0306:off75:s11",
+      "episode": "train_ep0306",
+      "start_step": 11,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.00523829460144043,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0307:off75:s14",
+      "episode": "train_ep0307",
+      "start_step": 14,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.046011269092559814,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0308:off75:s17",
+      "episode": "train_ep0308",
+      "start_step": 17,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 1,
+      "considered": 1,
+      "reasons": {
+        "switched": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.06393855810165405,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0309:off75:s20",
+      "episode": "train_ep0309",
+      "start_step": 20,
+      "baseline_success": true,
+      "baseline_steps": 70,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 1,
+      "considered": 1,
+      "reasons": {
+        "switched": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.051342710852622986,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0310:off75:s23",
+      "episode": "train_ep0310",
+      "start_step": 23,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.036477088928222656,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0311:off75:s26",
+      "episode": "train_ep0311",
+      "start_step": 26,
+      "baseline_success": false,
+      "baseline_steps": 90,
+      "discrete_success": false,
+      "discrete_steps": 90,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 9
+      },
+      "last_gain": 0.03228259086608887,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0312:off75:s29",
+      "episode": "train_ep0312",
+      "start_step": 29,
+      "baseline_success": true,
+      "baseline_steps": 78,
+      "discrete_success": true,
+      "discrete_steps": 78,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 7
+      },
+      "last_gain": 0.022708654403686523,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0313:off75:s32",
+      "episode": "train_ep0313",
+      "start_step": 32,
+      "baseline_success": true,
+      "baseline_steps": 36,
+      "discrete_success": true,
+      "discrete_steps": 36,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 3
+      },
+      "last_gain": 0.020334601402282715,
+      "identical_when_no_switch": true
+    },
+    {
+      "task": "pilot:ep0314:off75:s35",
+      "episode": "train_ep0314",
+      "start_step": 35,
+      "baseline_success": true,
+      "baseline_steps": 76,
+      "discrete_success": true,
+      "discrete_steps": 76,
+      "switched": 0,
+      "considered": 1,
+      "reasons": {
+        "margin_not_met": 1,
+        "not_first_planning_step": 7
+      },
+      "last_gain": 0.03814971446990967,
+      "identical_when_no_switch": true
+    }
+  ]
+}

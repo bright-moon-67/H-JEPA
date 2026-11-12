@@ -42,6 +42,7 @@ from hierarchical_solver import build_hierarchical_solver
 from planning_eval import load_model, load_eval_config
 from ragc_oracle import (
     antithetic_candidates,
+    clear_residual_motion,
     counterfactual_fingerprint,
     raw_actions_from_tokens,
     restore_eval_anchor,
@@ -169,6 +170,7 @@ class RAGCOracleCollector:
         directions: int = 1,
         jsonl_path: str | None = None,
         verbose: bool = True,
+        deterministic_reset: bool = False,
     ):
         if directions < 1:
             raise ValueError("directions must be >= 1")
@@ -178,6 +180,7 @@ class RAGCOracleCollector:
         self.directions = int(directions)
         self.jsonl_path = jsonl_path
         self.verbose = verbose
+        self.deterministic_reset = bool(deterministic_reset)
         self._log = print if verbose else (lambda *a, **k: None)
 
         cfg = load_eval_config(config_name)
@@ -258,9 +261,21 @@ class RAGCOracleCollector:
 
     # -- baseline trace ----------------------------------------------------- #
     def trace_baseline(self, init_state, goal_state, ep_pixels):
-        """Official-style rollout of the frozen policy, with per-step capture."""
+        """Official-style rollout of the frozen policy, with per-step capture.
+
+        `deterministic_reset=True` (used by PAIRED A/B experiments) rebuilds the
+        Pymunk space and clears residual velocities, so two rollouts of the same
+        task start from a bit-identical physical state. Official eval does NOT do
+        this, which is why a paired comparison needs it explicitly: without it a
+        run that changes nothing can still flip outcome via leftover state.
+        """
         env = self.env
         env.reset()
+        if self.deterministic_reset and hasattr(env.unwrapped, "_setup"):
+            env.unwrapped._setup()
+            clear_residual_motion(env)
+        elif self.deterministic_reset:
+            clear_residual_motion(env)
         env.unwrapped._set_state(np.asarray(init_state, dtype=np.float64))
         env.unwrapped._set_goal_state(np.asarray(goal_state, dtype=np.float64))
         goal_pixels = np.asarray(ep_pixels[-1], dtype=np.uint8)
