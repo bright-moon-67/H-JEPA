@@ -1,0 +1,1361 @@
+{
+ "trace_dir": "/root/rivermind-data/hjepa_home/ckpts/ant/ant_hjepa_l3/seed42/eval_dev12_env1000/trace",
+ "worker": "eval_dev12_env1000",
+ "seed": 42,
+ "n_tasks": 12,
+ "trace_done": {
+  "format": "antmaze_trace_done_v1",
+  "finished_at": "2026-11-13 00:44:08 Asia",
+  "wall_clock": 1444.676662683487,
+  "n_step_records": 4212,
+  "n_planning_records": 95,
+  "n_solves": 95,
+  "tasks": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "error": null
+ },
+ "tasks": {
+  "0": {
+   "task": 0,
+   "success": true,
+   "steps_to_success": 244,
+   "n_steps": 351,
+   "start_ij": [
+    2,
+    2
+   ],
+   "goal_ij": [
+    3,
+    4
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.9889086002231869,
+    "final": 0.9889086002231869
+   },
+   "stagnation": {
+    "longest_steps": 7,
+    "start_step": null,
+    "mean_disp": 0.08625783236962378
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 241,
+    "most_visited": [
+     [
+      [
+       3,
+       2
+      ],
+      103
+     ],
+     [
+      [
+       3,
+       3
+      ],
+      78
+     ],
+     [
+      [
+       2,
+       2
+      ],
+      43
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.3719542840189851,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9258769932300207,
+     "subgoal_cos_min": 0.28991743278385135,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2905332544294337,
+     "n_iters_mean": 56.55555555555556,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9519767209458696,
+     "subgoal_cos_min": 0.4901282941418348,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.768811966740369,
+     "n_iters_mean": 32.096774193548384,
+     "n_iters_max": 45
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9577635847117557,
+     "subgoal_cos_min": 0.4866353159546691,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6025775919727362,
+     "n_iters_mean": 39.714285714285715,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": null,
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 244"
+   }
+  },
+  "1": {
+   "task": 1,
+   "success": true,
+   "steps_to_success": 285,
+   "n_steps": 351,
+   "start_ij": [
+    5,
+    3
+   ],
+   "goal_ij": [
+    4,
+    5
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.9858938425596531,
+    "final": 0.9858938425596531
+   },
+   "stagnation": {
+    "longest_steps": 9,
+    "start_step": null,
+    "mean_disp": 0.0755054163676511
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 282,
+    "most_visited": [
+     [
+      [
+       4,
+       4
+      ],
+      92
+     ],
+     [
+      [
+       5,
+       3
+      ],
+      71
+     ],
+     [
+      [
+       5,
+       4
+      ],
+      71
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.37988549382495373,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9595459168506989,
+     "subgoal_cos_min": 0.6723428699670445,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2784629626040303,
+     "n_iters_mean": 56.55555555555556,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9571769359717412,
+     "subgoal_cos_min": 0.7025743632604997,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.7731498619920404,
+     "n_iters_mean": 32.096774193548384,
+     "n_iters_max": 45
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9703751502298111,
+     "subgoal_cos_min": 0.7263309358344704,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.5648741565004143,
+     "n_iters_mean": 39.714285714285715,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": {
+    "step": 133,
+    "signal": "distance-to-goal increases after progress"
+   },
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 285"
+   }
+  },
+  "2": {
+   "task": 2,
+   "success": true,
+   "steps_to_success": 288,
+   "n_steps": 351,
+   "start_ij": [
+    4,
+    1
+   ],
+   "goal_ij": [
+    6,
+    2
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.906515037376935,
+    "final": 0.906515037376935
+   },
+   "stagnation": {
+    "longest_steps": 8,
+    "start_step": null,
+    "mean_disp": 0.07996920456704941
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 285,
+    "most_visited": [
+     [
+      [
+       6,
+       1
+      ],
+      120
+     ],
+     [
+      [
+       6,
+       2
+      ],
+      73
+     ],
+     [
+      [
+       5,
+       1
+      ],
+      68
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.33829844214318466,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9524031349054605,
+     "subgoal_cos_min": 0.5200744217360712,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2453045783038066,
+     "n_iters_mean": 58.97222222222222,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9730701126113053,
+     "subgoal_cos_min": 0.735155673521154,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.5155662570680388,
+     "n_iters_mean": 31.516129032258064,
+     "n_iters_max": 47
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9930682315523341,
+     "subgoal_cos_min": 0.9160188798084905,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.5003690648837921,
+     "n_iters_mean": 55.142857142857146,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": null,
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 288"
+   }
+  },
+  "3": {
+   "task": 3,
+   "success": false,
+   "steps_to_success": null,
+   "n_steps": 351,
+   "start_ij": [
+    6,
+    2
+   ],
+   "goal_ij": [
+    4,
+    1
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 2.0,
+    "final": 2.0,
+    "progress": 1.0,
+    "progress_ratio": 0.3333333333333333
+   },
+   "dist_to_goal_xy": {
+    "min": 7.338470643022787,
+    "final": 8.543517289906195
+   },
+   "stagnation": {
+    "longest_steps": 87,
+    "start_step": 132,
+    "mean_disp": 0.04135337802011635
+   },
+   "loitering": {
+    "distinct_cells": 2,
+    "revisit_steps": 349,
+    "most_visited": [
+     [
+      [
+       6,
+       1
+      ],
+      292
+     ],
+     [
+      [
+       6,
+       2
+      ],
+      59
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.25788114439129384,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9690598564707742,
+     "subgoal_cos_min": 0.588565493595683,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2404439399940121,
+     "n_iters_mean": 58.97222222222222,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9872798353952488,
+     "subgoal_cos_min": 0.7339283476290435,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6883210770914178,
+     "n_iters_mean": 31.516129032258064,
+     "n_iters_max": 47
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9742748008639408,
+     "subgoal_cos_min": 0.5141207910595831,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.4853027748978125,
+     "n_iters_mean": 55.142857142857146,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": {
+    "step": 132,
+    "signal": "stagnation >= 87 steps (disp<0.05)"
+   },
+   "classification": {
+    "class": "B",
+    "reason": "stuck for 87 consecutive steps (max disp<0.05)"
+   }
+  },
+  "4": {
+   "task": 4,
+   "success": false,
+   "steps_to_success": null,
+   "n_steps": 351,
+   "start_ij": [
+    5,
+    1
+   ],
+   "goal_ij": [
+    6,
+    3
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 3.0,
+    "final": 4.0,
+    "progress": -1.0,
+    "progress_ratio": -0.3333333333333333
+   },
+   "dist_to_goal_xy": {
+    "min": 8.799711803218585,
+    "final": 10.809848730318695
+   },
+   "stagnation": {
+    "longest_steps": 8,
+    "start_step": null,
+    "mean_disp": 0.07576922241299693
+   },
+   "loitering": {
+    "distinct_cells": 2,
+    "revisit_steps": 349,
+    "most_visited": [
+     [
+      [
+       5,
+       1
+      ],
+      286
+     ],
+     [
+      [
+       4,
+       1
+      ],
+      65
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.36203120277883877,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9701060754131072,
+     "subgoal_cos_min": 0.6085933817543188,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.281489495990231,
+     "n_iters_mean": 46.69444444444444,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.989361000235237,
+     "subgoal_cos_min": 0.6386038168088974,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6984420377824722,
+     "n_iters_mean": 33.483870967741936,
+     "n_iters_max": 47
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9841878887451501,
+     "subgoal_cos_min": 0.7463538211982971,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.3923619766103531,
+     "n_iters_mean": 33.892857142857146,
+     "n_iters_max": 53
+    }
+   },
+   "earliest_anomaly": {
+    "step": 229,
+    "signal": "distance-to-goal increases after progress"
+   },
+   "classification": {
+    "class": "A",
+    "reason": "little shortest-path progress along the maze topology"
+   }
+  },
+  "5": {
+   "task": 5,
+   "success": true,
+   "steps_to_success": 197,
+   "n_steps": 351,
+   "start_ij": [
+    4,
+    5
+   ],
+   "goal_ij": [
+    2,
+    4
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.9705655620547675,
+    "final": 0.9705655620547675
+   },
+   "stagnation": {
+    "longest_steps": 5,
+    "start_step": null,
+    "mean_disp": 0.07472021379894102
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 194,
+    "most_visited": [
+     [
+      [
+       4,
+       5
+      ],
+      67
+     ],
+     [
+      [
+       3,
+       4
+      ],
+      66
+     ],
+     [
+      [
+       4,
+       4
+      ],
+      40
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.35834058407937336,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9422924276062175,
+     "subgoal_cos_min": 0.7506876747003712,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.3050011826317127,
+     "n_iters_mean": 46.69444444444444,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9678929878603855,
+     "subgoal_cos_min": 0.8474563237553095,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.5423800207336948,
+     "n_iters_mean": 33.483870967741936,
+     "n_iters_max": 47
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9956951893920982,
+     "subgoal_cos_min": 0.9410140561779259,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.5979884671034801,
+     "n_iters_mean": 33.892857142857146,
+     "n_iters_max": 53
+    }
+   },
+   "earliest_anomaly": null,
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 197"
+   }
+  },
+  "6": {
+   "task": 6,
+   "success": true,
+   "steps_to_success": 163,
+   "n_steps": 351,
+   "start_ij": [
+    3,
+    4
+   ],
+   "goal_ij": [
+    2,
+    2
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.9862295371711821,
+    "final": 0.9862295371711821
+   },
+   "stagnation": {
+    "longest_steps": 5,
+    "start_step": null,
+    "mean_disp": 0.0800475192610703
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 160,
+    "most_visited": [
+     [
+      [
+       3,
+       3
+      ],
+      67
+     ],
+     [
+      [
+       3,
+       4
+      ],
+      55
+     ],
+     [
+      [
+       3,
+       2
+      ],
+      26
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.36218624783180725,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9540810742510737,
+     "subgoal_cos_min": 0.46595012385087825,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.3201048844169325,
+     "n_iters_mean": 52.27777777777778,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9594140626471874,
+     "subgoal_cos_min": 0.604082702589919,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6452816747629488,
+     "n_iters_mean": 32.70967741935484,
+     "n_iters_max": 50
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9918755261136757,
+     "subgoal_cos_min": 0.8337931786040795,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.4803822601912403,
+     "n_iters_mean": 43.25,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": null,
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 163"
+   }
+  },
+  "7": {
+   "task": 7,
+   "success": true,
+   "steps_to_success": 318,
+   "n_steps": 351,
+   "start_ij": [
+    1,
+    2
+   ],
+   "goal_ij": [
+    3,
+    3
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.9884433884806513,
+    "final": 0.9884433884806513
+   },
+   "stagnation": {
+    "longest_steps": 6,
+    "start_step": null,
+    "mean_disp": 0.07998935442721694
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 315,
+    "most_visited": [
+     [
+      [
+       3,
+       2
+      ],
+      109
+     ],
+     [
+      [
+       3,
+       3
+      ],
+      97
+     ],
+     [
+      [
+       1,
+       2
+      ],
+      57
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.35928351227314387,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9473350670044803,
+     "subgoal_cos_min": 0.6683516671265333,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2343635516915483,
+     "n_iters_mean": 52.27777777777778,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9761925056838218,
+     "subgoal_cos_min": 0.8386579070666902,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6848957166144699,
+     "n_iters_mean": 32.70967741935484,
+     "n_iters_max": 50
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9851026696116922,
+     "subgoal_cos_min": 0.8635240081078939,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.44301401143817376,
+     "n_iters_mean": 43.25,
+     "n_iters_max": 90
+    }
+   },
+   "earliest_anomaly": {
+    "step": 164,
+    "signal": "distance-to-goal increases after progress"
+   },
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 318"
+   }
+  },
+  "8": {
+   "task": 8,
+   "success": true,
+   "steps_to_success": 178,
+   "n_steps": 351,
+   "start_ij": [
+    5,
+    3
+   ],
+   "goal_ij": [
+    3,
+    4
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.983403899691207,
+    "final": 0.983403899691207
+   },
+   "stagnation": {
+    "longest_steps": 11,
+    "start_step": 65,
+    "mean_disp": 0.08031806616367727
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 175,
+    "most_visited": [
+     [
+      [
+       4,
+       4
+      ],
+      64
+     ],
+     [
+      [
+       5,
+       3
+      ],
+      63
+     ],
+     [
+      [
+       5,
+       4
+      ],
+      42
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.35544329196908897,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.921402535944239,
+     "subgoal_cos_min": 0.4576527526244893,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2902750089042068,
+     "n_iters_mean": 47.47222222222222,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9628653313778615,
+     "subgoal_cos_min": 0.7225203145014216,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.9121505938684513,
+     "n_iters_mean": 34.645161290322584,
+     "n_iters_max": 78
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9595652678856402,
+     "subgoal_cos_min": 0.48716766108754794,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.666089550901658,
+     "n_iters_mean": 36.607142857142854,
+     "n_iters_max": 76
+    }
+   },
+   "earliest_anomaly": {
+    "step": 65,
+    "signal": "stagnation >= 11 steps (disp<0.05)"
+   },
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 178"
+   }
+  },
+  "9": {
+   "task": 9,
+   "success": false,
+   "steps_to_success": null,
+   "n_steps": 351,
+   "start_ij": [
+    2,
+    5
+   ],
+   "goal_ij": [
+    3,
+    3
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 1.0,
+    "progress": 2.0,
+    "progress_ratio": 0.6666666666666666
+   },
+   "dist_to_goal_xy": {
+    "min": 2.186946717943317,
+    "final": 2.6742431014208936
+   },
+   "stagnation": {
+    "longest_steps": 10,
+    "start_step": 6,
+    "mean_disp": 0.07700993831175444
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 347,
+    "most_visited": [
+     [
+      [
+       3,
+       4
+      ],
+      184
+     ],
+     [
+      [
+       2,
+       4
+      ],
+      97
+     ],
+     [
+      [
+       2,
+       5
+      ],
+      59
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.36548572614574115,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.947718022626098,
+     "subgoal_cos_min": 0.5900987080766673,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2821558010260066,
+     "n_iters_mean": 47.47222222222222,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9553840884503729,
+     "subgoal_cos_min": 0.6228405301502016,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.7063287066147048,
+     "n_iters_mean": 34.645161290322584,
+     "n_iters_max": 78
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9678971717685108,
+     "subgoal_cos_min": 0.644404622015284,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6296967266660884,
+     "n_iters_mean": 36.607142857142854,
+     "n_iters_max": 76
+    }
+   },
+   "earliest_anomaly": {
+    "step": 6,
+    "signal": "stagnation >= 10 steps (disp<0.05)"
+   },
+   "classification": {
+    "class": "B",
+    "reason": "entered the goal cell but stayed outside the success tolerance (min |xy-goal|=2.19)"
+   }
+  },
+  "10": {
+   "task": 10,
+   "success": false,
+   "steps_to_success": null,
+   "n_steps": 351,
+   "start_ij": [
+    3,
+    4
+   ],
+   "goal_ij": [
+    5,
+    3
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 2.3317686419882517,
+    "final": 2.689350749747261
+   },
+   "stagnation": {
+    "longest_steps": 6,
+    "start_step": null,
+    "mean_disp": 0.0769247009749887
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 347,
+    "most_visited": [
+     [
+      [
+       5,
+       4
+      ],
+      188
+     ],
+     [
+      [
+       4,
+       4
+      ],
+      85
+     ],
+     [
+      [
+       3,
+       4
+      ],
+      53
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.3783894510876348,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9398418433835017,
+     "subgoal_cos_min": 0.561067209070838,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.228022123341227,
+     "n_iters_mean": 59.77777777777778,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9518771340841952,
+     "subgoal_cos_min": 0.6561225542377324,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.668731509108059,
+     "n_iters_mean": 34.41935483870968,
+     "n_iters_max": 63
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9906306089465654,
+     "subgoal_cos_min": 0.906749062322783,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6811327249351227,
+     "n_iters_mean": 35.07142857142857,
+     "n_iters_max": 62
+    }
+   },
+   "earliest_anomaly": {
+    "step": 208,
+    "signal": "distance-to-goal increases after progress"
+   },
+   "classification": {
+    "class": "B",
+    "reason": "entered the goal cell but stayed outside the success tolerance (min |xy-goal|=2.33)"
+   }
+  },
+  "11": {
+   "task": 11,
+   "success": true,
+   "steps_to_success": 228,
+   "n_steps": 351,
+   "start_ij": [
+    2,
+    4
+   ],
+   "goal_ij": [
+    4,
+    5
+   ],
+   "dist_to_goal_cells": {
+    "initial": 3.0,
+    "min": 0.0,
+    "final": 0.0,
+    "progress": 3.0,
+    "progress_ratio": 1.0
+   },
+   "dist_to_goal_xy": {
+    "min": 0.96092504904487,
+    "final": 0.96092504904487
+   },
+   "stagnation": {
+    "longest_steps": 6,
+    "start_step": null,
+    "mean_disp": 0.08324443317708881
+   },
+   "loitering": {
+    "distinct_cells": 4,
+    "revisit_steps": 225,
+    "most_visited": [
+     [
+      [
+       3,
+       4
+      ],
+      119
+     ],
+     [
+      [
+       2,
+       4
+      ],
+      54
+     ],
+     [
+      [
+       4,
+       4
+      ],
+      28
+     ]
+    ]
+   },
+   "posture": {
+    "min_z": 0.363804199094715,
+    "steps_below_0.2": 0
+   },
+   "levels": {
+    "1": {
+     "n_calls": 36,
+     "horizons": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "subgoal_cos_median": 0.9407874025847641,
+     "subgoal_cos_min": 0.37096671233559114,
+     "subgoal_reversals": 0,
+     "action_change_median": 1.2986955924992771,
+     "n_iters_mean": 59.77777777777778,
+     "n_iters_max": 90
+    },
+    "2": {
+     "n_calls": 31,
+     "horizons": [
+      2
+     ],
+     "subgoal_cos_median": 0.9671799907154522,
+     "subgoal_cos_min": 0.468589811278287,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6722553038707587,
+     "n_iters_mean": 34.41935483870968,
+     "n_iters_max": 63
+    },
+    "3": {
+     "n_calls": 28,
+     "horizons": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "subgoal_cos_median": 0.9811780699323529,
+     "subgoal_cos_min": 0.7602266518244806,
+     "subgoal_reversals": 0,
+     "action_change_median": 0.6520648748432911,
+     "n_iters_mean": 35.07142857142857,
+     "n_iters_max": 62
+    }
+   },
+   "earliest_anomaly": {
+    "step": 45,
+    "signal": "distance-to-goal increases after progress"
+   },
+   "classification": {
+    "class": "success",
+    "reason": "reached goal at step 228"
+   }
+  }
+ }
+}
