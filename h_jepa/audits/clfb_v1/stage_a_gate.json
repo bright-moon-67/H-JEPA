@@ -1,0 +1,87 @@
+{
+ "checks": {
+  "bw1_success": {
+   "ok": true,
+   "detail": [
+    false,
+    false,
+    true
+   ]
+  },
+  "bw1_steps": {
+   "ok": true,
+   "detail": null
+  },
+  "force_success": {
+   "ok": true,
+   "detail": [
+    false,
+    false,
+    true
+   ]
+  },
+  "force_steps": {
+   "ok": true,
+   "detail": null
+  },
+  "bw1_planning_n_iters": {
+   "ok": true,
+   "detail": null
+  },
+  "force_planning_n_iters": {
+   "ok": true,
+   "detail": null
+  },
+  "bw1_step_sha": {
+   "ok": true,
+   "detail": {
+    "base": "e62f05c1c168fce491539100bdf0da056f20490e812d3599f8b1c93d5b11e51f",
+    "bw1": "e62f05c1c168fce491539100bdf0da056f20490e812d3599f8b1c93d5b11e51f"
+   }
+  },
+  "force_step_sha": {
+   "ok": true,
+   "detail": {
+    "base": "e62f05c1c168fce491539100bdf0da056f20490e812d3599f8b1c93d5b11e51f",
+    "force": "e62f05c1c168fce491539100bdf0da056f20490e812d3599f8b1c93d5b11e51f"
+   }
+  },
+  "force_records_present": {
+   "ok": true,
+   "detail": {
+    "n": 84
+   }
+  },
+  "force_never_switches": {
+   "ok": true,
+   "detail": {
+    "switched": 0
+   }
+  },
+  "force_costs_finite": {
+   "ok": true,
+   "detail": null
+  },
+  "force_beam_diverse": {
+   "ok": true,
+   "detail": {
+    "min": 0.001153707504272461
+   }
+  },
+  "force_probes_ran": {
+   "ok": true,
+   "detail": null
+  },
+  "force_all_forced_flag": {
+   "ok": true,
+   "detail": null
+  },
+  "bw1_no_selection_records": {
+   "ok": true,
+   "detail": {
+    "n": 0
+   }
+  }
+ },
+ "passed": true
+}

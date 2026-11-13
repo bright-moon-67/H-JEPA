@@ -57,6 +57,11 @@ class HierarchicalSolver:
         # It only post-processes the level-1 plan of the FIRST planning call
         # and falls back to the original actions whenever a guard fails.
         self.ragc_selector: Any = None
+        self.clfb: Any = None
+
+    def set_clfb(self, selector: Any) -> None:
+        """Opt-in L3 cross-level selector; None disables it."""
+        self.clfb = selector
 
     def set_ragc_selector(self, selector: Any) -> None:
         """Attach a discrete action selector (or ``None`` to disable)."""
@@ -210,12 +215,43 @@ class HierarchicalSolver:
                     f'with planning_horizon={planning_horizon} expects {_expected}'
                 )
 
+            # CLFB only runs when L3 and its child L2 both actively plan.
+            clfb_active = (
+                self.clfb is not None
+                and self.clfb.cfg.enabled
+                and self.clfb.cfg.beam_width > 1
+                and len(self.level_models) == 3
+                and level == 3
+                and horizon_schedules[2][call_idx] > 1
+            )
+            pool_kwargs = (
+                {
+                    'return_candidate_pool': True,
+                    'candidate_pool_size': self.clfb.cfg.top_m,
+                } if clfb_active else {}
+            )
             result = self.level_solvers[level].solve(
                 info_dict=level_info,
                 planning_horizon=planning_horizon,
                 steps_taken=steps_taken,
                 eval_budget=eval_budget,
+                **pool_kwargs,
             )
+            if clfb_active:
+                result = self.clfb.select(
+                    level3_solver=self.level_solvers[3],
+                    level2_solver=self.level_solvers[2],
+                    level3_info=level_info,
+                    level2_base_info=info_dict,
+                    level2_observation=obs_embeddings['embed_2'],
+                    level2_cfg=self._level_plan_config(2),
+                    level3_num_subgoals=self._level_plan_config(3).num_subgoals,
+                    level3_goal=goal_embeddings['embed_3'],
+                    level2_horizon=horizon_schedules[2][call_idx],
+                    call_idx=call_idx,
+                    steps_taken=steps_taken,
+                    result=result,
+                )
             upper_anchored = this_level_anchored
             skipped_goal_level = None
             subgoal_latents = result['predictions']['predicted_embed_0']

@@ -220,6 +220,18 @@ def _build_policy(
     policy_config = _build_policy_plan_config(cfg)
     solver = build_solver(cfg, model)
 
+    # Default-off CLFB: no change to the original model or planner.
+    clfb_cfg = cfg.get('clfb', None)
+    if (
+        _is_hierarchical_solver(cfg)
+        and clfb_cfg is not None
+        and bool(clfb_cfg.get('enabled', False))
+    ):
+        from cross_level_beam import CLFBConfig, CrossLevelBeam
+
+        clfb_kwargs = OmegaConf.to_container(clfb_cfg, resolve=True)
+        solver.set_clfb(CrossLevelBeam(CLFBConfig(**clfb_kwargs)))
+
     # Optional Feedback-N control: execute fewer Level-1 tokens than the planner
     # produced, while the solver keeps its ORIGINAL receding_horizon schedule.
     # Absent from the config -> None -> identical behaviour to upstream.
@@ -395,6 +407,16 @@ def _run_chunked_eval(
         finally:
             world.close()
         metrics["solve_records"] = pop_solve_records(getattr(policy, "solver", None))
+        clfb = getattr(getattr(policy, "solver", None), "clfb", None)
+        if clfb is not None:
+            chunk_tasks = [int(x) for x in ep_idx[start:end]]
+            clfb_records = list(clfb.records)
+            for record in clfb_records:
+                env_idx = record.get("env_idx")
+                if env_idx is not None and 0 <= env_idx < len(chunk_tasks):
+                    record["task"] = chunk_tasks[env_idx]
+            metrics["clfb_records"] = clfb_records
+            clfb.records.clear()
         tmp = path.with_suffix(".tmp")
         tmp.write_text(json.dumps(_serialize_metrics(metrics)))
         os.replace(tmp, path)  # atomic: a preemption never leaves a partial chunk file
@@ -572,6 +594,30 @@ def run_planning_eval(
     # Per-solve GD compute metadata (level, horizon, num_samples, per-env n_iters,
     # wall_clock) for the planner-FLOPs Pareto analysis.
     solve_records = pop_solve_records(getattr(policy, "solver", None))
+    clfb = getattr(getattr(policy, "solver", None), "clfb", None)
+    if clfb is not None:
+        import json
+
+        clfb_records = list(clfb.records)
+        if load_eval_trajs_path:
+            try:
+                payload = torch.load(
+                    load_eval_trajs_path, map_location="cpu", weights_only=False
+                )
+                tasks = payload.get("episodes_idx") or list(
+                    range(len(payload.get("data", [])))
+                )
+                tasks = [int(x) for x in tasks]
+                for record in clfb_records:
+                    env_idx = record.get("env_idx")
+                    if env_idx is not None and 0 <= env_idx < len(tasks):
+                        record["task"] = tasks[env_idx]
+            except Exception:
+                pass
+        (resolved_results_dir / "clfb_records.json").write_text(
+            json.dumps(clfb_records)
+        )
+        clfb.records.clear()
     if solve_records:
         import json
         (resolved_results_dir / "planning_compute.json").write_text(

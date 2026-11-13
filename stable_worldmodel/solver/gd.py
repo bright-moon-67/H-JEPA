@@ -277,8 +277,15 @@ class GradientSolver(torch.nn.Module):
         planning_horizon: int | None = None,
         steps_taken: int | None = None,
         eval_budget: int | None = None,
+        return_candidate_pool: bool = False,
+        candidate_pool_size: int = 32,
     ) -> dict:
-        """Solve the planning problem using gradient descent."""
+        """Solve the planning problem using gradient descent.
+
+        CLFB opt-in: export optimized Top-M candidates and their final costs.
+        """
+        if return_candidate_pool and not (1 <= candidate_pool_size <= self.num_samples):
+            raise ValueError("candidate_pool_size must be in [1, num_samples]")
         start_time = time.time()
         cost_last_n = max(1, int(self._config.cost_last_n))
         intermediate_cost_weight = float(self._config.intermediate_cost_weight)
@@ -303,6 +310,9 @@ class GradientSolver(torch.nn.Module):
 
         # Lists to hold results from each batch to be concatenated later
         batch_top_actions_list = []
+        pool_actions_list = []
+        pool_costs_list = []
+        pool_indices_list = []
 
         # --- Outer Loop: Iterate over batches ---
         per_env_iters = []
@@ -410,12 +420,26 @@ class GradientSolver(torch.nn.Module):
 
             top_actions_batch = batch_init[batch_indices, top_idx]
             batch_top_actions_list.append(top_actions_batch.detach().cpu())
+            if return_candidate_pool:
+                order = torch.argsort(final_costs, dim=1)[:, :candidate_pool_size]
+                row = torch.arange(current_bs, device=batch_init.device)[:, None]
+                pool_actions_list.append(batch_init[row, order].detach().cpu())
+                pool_costs_list.append(
+                    final_costs.gather(1, order).detach().cpu()
+                )
+                pool_indices_list.append(order.detach().cpu())
 
             per_env_iters.extend([int(iters_run)] * current_bs)
             per_env_time.extend([time.time() - batch_t0] * current_bs)
 
         # Concatenate all batch results
         outputs['actions'] = torch.cat(batch_top_actions_list, dim=0)
+        if return_candidate_pool:
+            outputs['candidate_pool'] = {
+                'actions': torch.cat(pool_actions_list, dim=0),
+                'costs': torch.cat(pool_costs_list, dim=0),
+                'indices': torch.cat(pool_indices_list, dim=0),
+            }
         outputs['predictions'] = self._rollout_final_actions(
             info_dict, outputs['actions']
         )
