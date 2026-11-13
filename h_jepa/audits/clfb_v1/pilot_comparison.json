@@ -1,0 +1,205 @@
+{
+ "format": "clfb_pilot_v1",
+ "seeds": {
+  "env1000": {
+   "baseline_success": 8,
+   "clfb_success": 7,
+   "tasks": [
+    {
+     "task": 0,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 10
+    },
+    {
+     "task": 1,
+     "baseline_success": true,
+     "clfb_success": false,
+     "switches": 13
+    },
+    {
+     "task": 2,
+     "baseline_success": true,
+     "clfb_success": false,
+     "switches": 16
+    },
+    {
+     "task": 3,
+     "baseline_success": false,
+     "clfb_success": true,
+     "switches": 11
+    },
+    {
+     "task": 4,
+     "baseline_success": false,
+     "clfb_success": false,
+     "switches": 5
+    },
+    {
+     "task": 5,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 14
+    },
+    {
+     "task": 6,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 7
+    },
+    {
+     "task": 7,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 7
+    },
+    {
+     "task": 8,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 9
+    },
+    {
+     "task": 9,
+     "baseline_success": false,
+     "clfb_success": false,
+     "switches": 8
+    },
+    {
+     "task": 10,
+     "baseline_success": false,
+     "clfb_success": true,
+     "switches": 11
+    },
+    {
+     "task": 11,
+     "baseline_success": true,
+     "clfb_success": false,
+     "switches": 14
+    }
+   ],
+   "switch_events": 125,
+   "planning_calls": 28,
+   "probe_wall_s": 918.1624989658594,
+   "baseline_eval_time_s": 1444.4310767650604,
+   "clfb_eval_time_s": 2321.19696187973,
+   "wall_ratio": 1.6069973841038299,
+   "l1_final_cost_mean": {
+    "baseline": 43.30924853406571,
+    "clfb": 46.54236212152023
+   }
+  },
+  "env2000": {
+   "baseline_success": 9,
+   "clfb_success": 8,
+   "tasks": [
+    {
+     "task": 0,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 7
+    },
+    {
+     "task": 1,
+     "baseline_success": false,
+     "clfb_success": false,
+     "switches": 10
+    },
+    {
+     "task": 2,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 15
+    },
+    {
+     "task": 3,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 12
+    },
+    {
+     "task": 4,
+     "baseline_success": false,
+     "clfb_success": false,
+     "switches": 14
+    },
+    {
+     "task": 5,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 13
+    },
+    {
+     "task": 6,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 13
+    },
+    {
+     "task": 7,
+     "baseline_success": true,
+     "clfb_success": false,
+     "switches": 9
+    },
+    {
+     "task": 8,
+     "baseline_success": true,
+     "clfb_success": false,
+     "switches": 9
+    },
+    {
+     "task": 9,
+     "baseline_success": false,
+     "clfb_success": true,
+     "switches": 6
+    },
+    {
+     "task": 10,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 10
+    },
+    {
+     "task": 11,
+     "baseline_success": true,
+     "clfb_success": true,
+     "switches": 7
+    }
+   ],
+   "switch_events": 125,
+   "planning_calls": 28,
+   "probe_wall_s": 918.9840043801814,
+   "baseline_eval_time_s": 1401.2879450321198,
+   "clfb_eval_time_s": 2293.250202178955,
+   "wall_ratio": 1.6365303150641106,
+   "l1_final_cost_mean": {
+    "baseline": 38.586112228808574,
+    "clfb": 41.26701466214879
+   }
+  }
+ },
+ "gate": {
+  "net_ge_2": false,
+  "destroyed_le_1": false,
+  "wall_le_1_5x": false,
+  "GO": false
+ },
+ "summary": {
+  "baseline_success": 17,
+  "clfb_success": 15,
+  "rescued": 3,
+  "destroyed": 5,
+  "net": -2,
+  "switch_events": 250,
+  "planning_calls": 56,
+  "switch_rate": 0.37202380952380953,
+  "probe_wall_s": 1837.1465033460408,
+  "wall_ratio_max": 1.6365303150641106,
+  "l3_cost_delta_when_switched_mean": 112.33903162539005,
+  "l2_probe_delta_when_switched_mean": -5.619630685538054,
+  "l1_final_cost_mean": {
+   "baseline": 40.947680381437145,
+   "clfb": 43.9046883918345
+  }
+ }
+}
