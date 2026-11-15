@@ -1,0 +1,32 @@
+[
+  {
+    "path": "h_jepa/hierarchical_solver.py",
+    "old": "        self.ragc_selector: Any = None\n    def set_ragc_selector(self, selector: Any) -> None:",
+    "new": "        self.ragc_selector: Any = None\n        self.pahrl_waypoints: Any = None\n\n    def set_graph_waypoints(self, controller: Any) -> None:\n        \"\"\"Default-off, optional L3 goal adapter.\"\"\"\n        self.pahrl_waypoints = controller\n\n    def set_ragc_selector(self, selector: Any) -> None:"
+  },
+  {
+    "path": "h_jepa/hierarchical_solver.py",
+    "old": "                level=level,\n            )\n\n    @property\n    def n_envs",
+    "new": "                level=level,\n            )\n        if self.pahrl_waypoints is not None:\n            self.pahrl_waypoints.reset(n_envs)\n\n    @property\n    def n_envs"
+  },
+  {
+    "path": "h_jepa/hierarchical_solver.py",
+    "old": "        goal_embeddings = self._encode_all_levels(info_dict=info_dict, key='goal')\n        for level in range(len(self.level_models), 0, -1):",
+    "new": "        goal_embeddings = self._encode_all_levels(info_dict=info_dict, key='goal')\n\n        # PAHRL-inspired graph guidance: replace only the *active L3 goal*.\n        # This preserves the real environment task goal and the original\n        # L3 -> L2 -> L1 anchoring semantics within this planning call.\n        # When L3 is skipped (horizon == 1), do not inject a waypoint.\n        if (\n            self.pahrl_waypoints is not None\n            and self.pahrl_waypoints.cfg.enabled\n            and len(self.level_models) == 3\n            and horizon_schedules[3][call_idx] > 1\n        ):\n            graph_goal, graph_mask = self.pahrl_waypoints.target_embeddings(\n                obs_embeddings['embed_3'],\n                goal_embeddings['embed_3'],\n                steps_taken=steps_taken,\n                call_idx=call_idx,\n            )\n            if graph_goal.shape != goal_embeddings['embed_3'].shape:\n                raise ValueError(\"Graph goal must match original L3 goal shape\")\n            goal_embeddings['embed_3'] = torch.where(\n                graph_mask[:, None, None],\n                graph_goal,\n                goal_embeddings['embed_3'],\n            )\n\n        for level in range(len(self.level_models), 0, -1):"
+  },
+  {
+    "path": "h_jepa/planning_eval.py",
+    "old": "    solver = build_solver(cfg, model)\n    # Optional Feedback-N control:",
+    "new": "    solver = build_solver(cfg, model)\n\n    # PAHRL graph guidance is opt-in. The default baseline is untouched.\n    graph_cfg = cfg.get('pahrl_graph', None)\n    if (\n        _is_hierarchical_solver(cfg)\n        and graph_cfg is not None\n        and bool(graph_cfg.get('enabled', False))\n    ):\n        import hashlib\n        from pahrl_memory import GraphMemory\n        from pahrl_waypoints import GraphWaypointController, WaypointConfig\n        graph = GraphMemory.load(str(graph_cfg['graph_path']))\n        ckpt_file = resolve_model_checkpoint_path(cfg.policy, cfg.get('cache_dir'))\n        digest = hashlib.sha256()\n        with open(ckpt_file, 'rb') as ckpt_fp:\n            for block in iter(lambda: ckpt_fp.read(4 * 1024 * 1024), b''):\n                digest.update(block)\n        norm_file = ckpt_file.parent / 'normalizer.pt'\n        norm_digest = hashlib.sha256()\n        with open(norm_file, 'rb') as norm_fp:\n            for block in iter(lambda: norm_fp.read(4 * 1024 * 1024), b''):\n                norm_digest.update(block)\n        graph.verify_artifacts(digest.hexdigest(), norm_digest.hexdigest())\n        controller_cfg = WaypointConfig(\n            enabled=True,\n            reach_cosine_distance=float(\n                graph_cfg.get('reach_cosine_distance', 0.035)\n            ),\n            k_attach=int(graph_cfg.get('k_attach', 3)),\n            max_waypoint_calls=int(graph_cfg.get('max_waypoint_calls', 6)),\n        )\n        solver.set_graph_waypoints(GraphWaypointController(graph, controller_cfg))\n\n    # Optional Feedback-N control:"
+  },
+  {
+    "path": "h_jepa/planning_eval.py",
+    "old": "        metrics[\"solve_records\"] = pop_solve_records(getattr(policy, \"solver\", None))\n        tmp = path.with_suffix(\".tmp\")",
+    "new": "        metrics[\"solve_records\"] = pop_solve_records(getattr(policy, \"solver\", None))\n        waypoint_ctrl = getattr(getattr(policy, \"solver\", None), \"pahrl_waypoints\", None)\n        if waypoint_ctrl is not None:\n            metrics[\"pahrl_records\"] = list(waypoint_ctrl.records)\n            waypoint_ctrl.records.clear()\n        tmp = path.with_suffix(\".tmp\")"
+  },
+  {
+    "path": "h_jepa/planning_eval.py",
+    "old": "    if solve_records:\n        import json\n        (resolved_results_dir / \"planning_compute.json\").write_text(\n            json.dumps(solve_records)\n        )\n\n    return metrics_to_save",
+    "new": "    if solve_records:\n        import json\n        (resolved_results_dir / \"planning_compute.json\").write_text(\n            json.dumps(solve_records)\n        )\n    waypoint_ctrl = getattr(getattr(policy, \"solver\", None), \"pahrl_waypoints\", None)\n    if waypoint_ctrl is not None:\n        import json\n        (resolved_results_dir / \"pahrl_waypoint_records.json\").write_text(\n            json.dumps(waypoint_ctrl.records, indent=2)\n        )\n\n    return metrics_to_save"
+  }
+]
