@@ -220,6 +220,38 @@ def _build_policy(
     policy_config = _build_policy_plan_config(cfg)
     solver = build_solver(cfg, model)
 
+    # PAHRL graph guidance is opt-in. The default baseline is untouched.
+    graph_cfg = cfg.get('pahrl_graph', None)
+    if (
+        _is_hierarchical_solver(cfg)
+        and graph_cfg is not None
+        and bool(graph_cfg.get('enabled', False))
+    ):
+        import hashlib
+        from pahrl_memory import GraphMemory
+        from pahrl_waypoints import GraphWaypointController, WaypointConfig
+        graph = GraphMemory.load(str(graph_cfg['graph_path']))
+        ckpt_file = resolve_model_checkpoint_path(cfg.policy, cfg.get('cache_dir'))
+        digest = hashlib.sha256()
+        with open(ckpt_file, 'rb') as ckpt_fp:
+            for block in iter(lambda: ckpt_fp.read(4 * 1024 * 1024), b''):
+                digest.update(block)
+        norm_file = ckpt_file.parent / 'normalizer.pt'
+        norm_digest = hashlib.sha256()
+        with open(norm_file, 'rb') as norm_fp:
+            for block in iter(lambda: norm_fp.read(4 * 1024 * 1024), b''):
+                norm_digest.update(block)
+        graph.verify_artifacts(digest.hexdigest(), norm_digest.hexdigest())
+        controller_cfg = WaypointConfig(
+            enabled=True,
+            reach_cosine_distance=float(
+                graph_cfg.get('reach_cosine_distance', 0.035)
+            ),
+            k_attach=int(graph_cfg.get('k_attach', 3)),
+            max_waypoint_calls=int(graph_cfg.get('max_waypoint_calls', 6)),
+        )
+        solver.set_graph_waypoints(GraphWaypointController(graph, controller_cfg))
+
     # Optional Feedback-N control: execute fewer Level-1 tokens than the planner
     # produced, while the solver keeps its ORIGINAL receding_horizon schedule.
     # Absent from the config -> None -> identical behaviour to upstream.
@@ -395,6 +427,10 @@ def _run_chunked_eval(
         finally:
             world.close()
         metrics["solve_records"] = pop_solve_records(getattr(policy, "solver", None))
+        waypoint_ctrl = getattr(getattr(policy, "solver", None), "pahrl_waypoints", None)
+        if waypoint_ctrl is not None:
+            metrics["pahrl_records"] = list(waypoint_ctrl.records)
+            waypoint_ctrl.records.clear()
         tmp = path.with_suffix(".tmp")
         tmp.write_text(json.dumps(_serialize_metrics(metrics)))
         os.replace(tmp, path)  # atomic: a preemption never leaves a partial chunk file
@@ -576,6 +612,12 @@ def run_planning_eval(
         import json
         (resolved_results_dir / "planning_compute.json").write_text(
             json.dumps(solve_records)
+        )
+    waypoint_ctrl = getattr(getattr(policy, "solver", None), "pahrl_waypoints", None)
+    if waypoint_ctrl is not None:
+        import json
+        (resolved_results_dir / "pahrl_waypoint_records.json").write_text(
+            json.dumps(waypoint_ctrl.records, indent=2)
         )
 
     return metrics_to_save

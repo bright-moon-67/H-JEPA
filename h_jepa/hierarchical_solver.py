@@ -57,6 +57,11 @@ class HierarchicalSolver:
         # It only post-processes the level-1 plan of the FIRST planning call
         # and falls back to the original actions whenever a guard fails.
         self.ragc_selector: Any = None
+        self.pahrl_waypoints: Any = None
+
+    def set_graph_waypoints(self, controller: Any) -> None:
+        """Default-off, optional L3 goal adapter."""
+        self.pahrl_waypoints = controller
 
     def set_ragc_selector(self, selector: Any) -> None:
         """Attach a discrete action selector (or ``None`` to disable)."""
@@ -75,6 +80,8 @@ class HierarchicalSolver:
                 config=self._level_plan_config(level),
                 level=level,
             )
+        if self.pahrl_waypoints is not None:
+            self.pahrl_waypoints.reset(n_envs)
 
     @property
     def n_envs(self) -> int:
@@ -125,6 +132,30 @@ class HierarchicalSolver:
         )
         obs_embeddings = self._encode_all_levels(info_dict=info_dict, key='pixels')
         goal_embeddings = self._encode_all_levels(info_dict=info_dict, key='goal')
+
+        # PAHRL-inspired graph guidance: replace only the *active L3 goal*.
+        # This preserves the real environment task goal and the original
+        # L3 -> L2 -> L1 anchoring semantics within this planning call.
+        # When L3 is skipped (horizon == 1), do not inject a waypoint.
+        if (
+            self.pahrl_waypoints is not None
+            and self.pahrl_waypoints.cfg.enabled
+            and len(self.level_models) == 3
+            and horizon_schedules[3][call_idx] > 1
+        ):
+            graph_goal, graph_mask = self.pahrl_waypoints.target_embeddings(
+                obs_embeddings['embed_3'],
+                goal_embeddings['embed_3'],
+                steps_taken=steps_taken,
+                call_idx=call_idx,
+            )
+            if graph_goal.shape != goal_embeddings['embed_3'].shape:
+                raise ValueError("Graph goal must match original L3 goal shape")
+            goal_embeddings['embed_3'] = torch.where(
+                graph_mask[:, None, None],
+                graph_goal,
+                goal_embeddings['embed_3'],
+            )
 
         for level in range(len(self.level_models), 0, -1):
             level_cfg = self._level_plan_config(level)
