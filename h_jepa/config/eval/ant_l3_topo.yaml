@@ -1,0 +1,24 @@
+# HiDe-inspired V1.1 task-space topology waypoints; inherits the original ant_l3.
+defaults:
+  - ant_l3
+  - _self_
+
+hide_topology:
+  enabled: false
+  # TRAIN-only observed graph (cells/edges/waypoint embeddings + hashes).
+  graph_path: null
+  # Frozen B2 real-state XY readout (live-domain TRAIN states only).
+  readout_path: null
+  # Gate-1 geometry audit and Gate-2 local-controller certification files.
+  geometry_audit_path: null
+  certification_path: null
+  certification_evidence_id: gate2_local_readiness_v1
+  min_certified_successes: 9
+  # Calibrated from TRAIN-only evidence and frozen before any dev outcome.
+  attach_radius: 2.0
+  attach_margin: 0.5
+  lookahead_cells: 1
+  arrival_radius: 2.0
+  max_waypoint_calls: 12
+  # Optional JSON dump of per-call adapter decisions (diagnostics only).
+  record_path: null

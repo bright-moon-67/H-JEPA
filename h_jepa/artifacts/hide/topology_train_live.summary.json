@@ -1,0 +1,30 @@
+{
+  "num_cells": 26,
+  "directed_observed_edges": 56,
+  "cells_with_live_waypoint": 26,
+  "train_only": true,
+  "warning": "Cell merging may create false shortcuts; audit walls.",
+  "grid_width": 4.0,
+  "origin": [
+    -2.0,
+    -2.0
+  ],
+  "max_displacement_per_step": 1.0,
+  "min_edge_support": 1,
+  "discarded_nonlocal_step_transitions": 2,
+  "support_total": 757,
+  "support_min": 2,
+  "support_median": 13.5,
+  "isolated_nodes": 0,
+  "nodes_with_rep": 26,
+  "rep_coverage": 1.0,
+  "embed_dims": {
+    "embed_1": 384,
+    "embed_2": 384,
+    "embed_3": 384
+  },
+  "checkpoint_sha256": "c55d9835d6c774da4363c45f8c390c8abed5a496282dd5b9815615e417f69f99",
+  "normalizer_sha256": "1e86ce0a72836c69455a73f614765b7c186bebeca0904be60a9db12ed889fb44",
+  "dense_train_xy_sha256": "5de8937956c855b8dd2f013937eaa29e298556350dc6a984a440bfa1ddc8eb08",
+  "live_train_states_sha256": "d171ff487c69bb62e2573e5b8c081a5ffcceca32b98a338e8c8dc6f742a965a2"
+}

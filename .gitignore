@@ -42,3 +42,6 @@ h_jepa/unit_tests/
 # HiDe V1: large live-state exports (regenerate with scripts/export_hide_live_train.py)
 h_jepa/artifacts/hide/live_train_states.npz
 h_jepa/artifacts/hide/smoke_live_states.npz
+
+# HiDe V1.1: large live all-level export (regenerate with scripts/export_topology_states.py)
+h_jepa/artifacts/hide/live_train_states_v11.npz

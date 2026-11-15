@@ -1,0 +1,297 @@
+{
+  "num_tasks": 12,
+  "lookahead_cells": 1,
+  "grid_width": 4.0,
+  "waypoint_distance_from_start": [
+    3.128,
+    3.337,
+    3.479,
+    3.589,
+    3.816,
+    3.901,
+    4.185,
+    4.23,
+    4.5,
+    4.508,
+    4.758,
+    4.845
+  ],
+  "tasks": [
+    {
+      "episode": 150,
+      "start_xy": [
+        3.061696042151362,
+        12.642079159633385
+      ],
+      "goal_node": 12,
+      "waypoint_node": 2,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "route": [
+        8,
+        2,
+        3,
+        4,
+        9,
+        12
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.1282979880057504
+    },
+    {
+      "episode": 151,
+      "start_xy": [
+        7.52529078614714,
+        8.67383759789595
+      ],
+      "goal_node": 4,
+      "waypoint_node": 7,
+      "waypoint_xy": [
+        4.0,
+        8.0
+      ],
+      "route": [
+        10,
+        7,
+        8,
+        2,
+        3,
+        4
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.5891130151100157
+    },
+    {
+      "episode": 152,
+      "start_xy": [
+        19.459939306602855,
+        3.6356392339430226
+      ],
+      "goal_node": 7,
+      "waypoint_node": 18,
+      "waypoint_xy": [
+        16.0,
+        4.0
+      ],
+      "route": [
+        22,
+        18,
+        13,
+        14,
+        10,
+        7
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.479071538962238
+    },
+    {
+      "episode": 153,
+      "start_xy": [
+        4.69515807404105,
+        11.231616236545623
+      ],
+      "goal_node": 12,
+      "waypoint_node": 2,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "route": [
+        8,
+        2,
+        3,
+        4,
+        9,
+        12
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.757617360420358
+    },
+    {
+      "episode": 154,
+      "start_xy": [
+        15.822360462004916,
+        19.75230199787146
+      ],
+      "goal_node": 15,
+      "waypoint_node": 25,
+      "waypoint_xy": [
+        20.0,
+        20.0
+      ],
+      "route": [
+        20,
+        25,
+        24,
+        23,
+        19,
+        15
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.184976273490478
+    },
+    {
+      "episode": 155,
+      "start_xy": [
+        3.3358165945249554,
+        11.896171447613646
+      ],
+      "goal_node": 12,
+      "waypoint_node": 2,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "route": [
+        8,
+        2,
+        3,
+        4,
+        9,
+        12
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.3374320548287897
+    },
+    {
+      "episode": 156,
+      "start_xy": [
+        16.222314114976363,
+        20.54183266672517
+      ],
+      "goal_node": 15,
+      "waypoint_node": 25,
+      "waypoint_xy": [
+        20.0,
+        20.0
+      ],
+      "route": [
+        20,
+        25,
+        24,
+        23,
+        19,
+        15
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.8163455405187467
+    },
+    {
+      "episode": 157,
+      "start_xy": [
+        4.838957354125773,
+        19.756004037850882
+      ],
+      "goal_node": 7,
+      "waypoint_node": 4,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "route": [
+        9,
+        4,
+        3,
+        2,
+        8,
+        7
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.845104983856694
+    },
+    {
+      "episode": 158,
+      "start_xy": [
+        20.433173979472958,
+        12.815302812568259
+      ],
+      "goal_node": 7,
+      "waypoint_node": 19,
+      "waypoint_xy": [
+        16.0,
+        12.0
+      ],
+      "route": [
+        23,
+        19,
+        15,
+        14,
+        10,
+        7
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.507521515029941
+    },
+    {
+      "episode": 159,
+      "start_xy": [
+        0.16482488952318985,
+        16.49654511441144
+      ],
+      "goal_node": 1,
+      "waypoint_node": 2,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "route": [
+        3,
+        2,
+        8,
+        7,
+        6,
+        1
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.499565002324527
+    },
+    {
+      "episode": 160,
+      "start_xy": [
+        -0.15960680840561392,
+        12.769373525932856
+      ],
+      "goal_node": 0,
+      "waypoint_node": 8,
+      "waypoint_xy": [
+        4.0,
+        12.0
+      ],
+      "route": [
+        2,
+        8,
+        7,
+        6,
+        1,
+        0
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 4.2301612762329395
+    },
+    {
+      "episode": 161,
+      "start_xy": [
+        19.880950983195476,
+        11.605360602714596
+      ],
+      "goal_node": 7,
+      "waypoint_node": 19,
+      "waypoint_xy": [
+        16.0,
+        12.0
+      ],
+      "route": [
+        23,
+        19,
+        15,
+        14,
+        10,
+        7
+      ],
+      "hops_to_goal": 5.0,
+      "waypoint_distance_from_start": 3.9009640844098676
+    }
+  ]
+}

@@ -1,0 +1,751 @@
+{
+  "gate": "dev_route_coverage",
+  "graph": "artifacts/hide/topology_train_live.npz",
+  "graph_summary": {
+    "num_cells": 26,
+    "directed_observed_edges": 56,
+    "cells_with_live_waypoint": 26,
+    "train_only": true,
+    "warning": "Cell merging may create false shortcuts; audit walls.",
+    "grid_width": 4.0,
+    "origin": [
+      -2.0,
+      -2.0
+    ],
+    "max_displacement_per_step": 1.0,
+    "min_edge_support": 1,
+    "discarded_nonlocal_step_transitions": 2,
+    "support_total": 757,
+    "support_min": 2,
+    "support_median": 13.5,
+    "isolated_nodes": 0,
+    "nodes_with_rep": 26,
+    "rep_coverage": 1.0,
+    "embed_dims": {
+      "embed_1": 384,
+      "embed_2": 384,
+      "embed_3": 384
+    },
+    "checkpoint_sha256": "c55d9835d6c774da4363c45f8c390c8abed5a496282dd5b9815615e417f69f99",
+    "normalizer_sha256": "1e86ce0a72836c69455a73f614765b7c186bebeca0904be60a9db12ed889fb44",
+    "dense_train_xy_sha256": "5de8937956c855b8dd2f013937eaa29e298556350dc6a984a440bfa1ddc8eb08",
+    "live_train_states_sha256": "d171ff487c69bb62e2573e5b8c081a5ffcceca32b98a338e8c8dc6f742a965a2"
+  },
+  "thresholds": {
+    "attach_radius": 2.0,
+    "attach_margin": 0.5,
+    "lookahead_cells": 1
+  },
+  "num_queries": 24,
+  "num_routed": 22,
+  "coverage": 0.9166666666666666,
+  "non_progressing_waypoints": 0,
+  "records": [
+    {
+      "env_seed": 1000,
+      "task": 0,
+      "decoded_current_xy": [
+        4.101105690002441,
+        4.0325751304626465
+      ],
+      "decoded_goal_xy": [
+        11.981687545776367,
+        7.938742637634277
+      ],
+      "start_node": 6,
+      "goal_node": 14,
+      "routed": true,
+      "waypoint_node": 7,
+      "waypoint_xy": [
+        4.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        6,
+        7,
+        10,
+        14
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 1,
+      "decoded_current_xy": [
+        7.516119003295898,
+        15.86029052734375
+      ],
+      "decoded_goal_xy": [
+        13.983861923217773,
+        10.741427421569824
+      ],
+      "start_node": 11,
+      "goal_node": null,
+      "routed": false,
+      "waypoint_node": null,
+      "waypoint_xy": null,
+      "path_len": null,
+      "path_cost": null,
+      "distance_to_goal_before": null,
+      "distance_to_goal_after_waypoint": null,
+      "path_nodes": null
+    },
+    {
+      "env_seed": 1000,
+      "task": 2,
+      "decoded_current_xy": [
+        -0.07734870910644531,
+        11.85942554473877
+      ],
+      "decoded_goal_xy": [
+        3.818570613861084,
+        20.20349884033203
+      ],
+      "start_node": 2,
+      "goal_node": 9,
+      "routed": true,
+      "waypoint_node": 3,
+      "waypoint_xy": [
+        0.0,
+        16.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        2,
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 3,
+      "decoded_current_xy": [
+        3.842550754547119,
+        19.99434471130371
+      ],
+      "decoded_goal_xy": [
+        -0.06293964385986328,
+        11.892215728759766
+      ],
+      "start_node": 9,
+      "goal_node": 2,
+      "routed": true,
+      "waypoint_node": 4,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        9,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 4,
+      "decoded_current_xy": [
+        0.44084930419921875,
+        16.016040802001953
+      ],
+      "decoded_goal_xy": [
+        7.9779767990112305,
+        19.86725616455078
+      ],
+      "start_node": 3,
+      "goal_node": 12,
+      "routed": true,
+      "waypoint_node": 4,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        3,
+        4,
+        9,
+        12
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 5,
+      "decoded_current_xy": [
+        15.894742965698242,
+        11.773906707763672
+      ],
+      "decoded_goal_xy": [
+        11.835695266723633,
+        3.8469624519348145
+      ],
+      "start_node": 19,
+      "goal_node": 13,
+      "routed": true,
+      "waypoint_node": 15,
+      "waypoint_xy": [
+        12.0,
+        12.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        19,
+        15,
+        14,
+        13
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 6,
+      "decoded_current_xy": [
+        12.05495834350586,
+        7.88021993637085
+      ],
+      "decoded_goal_xy": [
+        4.09067964553833,
+        3.999319076538086
+      ],
+      "start_node": 14,
+      "goal_node": 6,
+      "routed": true,
+      "waypoint_node": 10,
+      "waypoint_xy": [
+        8.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        14,
+        10,
+        7,
+        6
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 7,
+      "decoded_current_xy": [
+        4.372220516204834,
+        0.07651901245117188
+      ],
+      "decoded_goal_xy": [
+        9.764240264892578,
+        8.26395320892334
+      ],
+      "start_node": 5,
+      "goal_node": null,
+      "routed": false,
+      "waypoint_node": null,
+      "waypoint_xy": null,
+      "path_len": null,
+      "path_cost": null,
+      "distance_to_goal_before": null,
+      "distance_to_goal_after_waypoint": null,
+      "path_nodes": null
+    },
+    {
+      "env_seed": 1000,
+      "task": 8,
+      "decoded_current_xy": [
+        7.589112758636475,
+        15.8525390625
+      ],
+      "decoded_goal_xy": [
+        12.016946792602539,
+        7.949957847595215
+      ],
+      "start_node": 11,
+      "goal_node": 14,
+      "routed": true,
+      "waypoint_node": 16,
+      "waypoint_xy": [
+        12.0,
+        16.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        11,
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 9,
+      "decoded_current_xy": [
+        16.20775604248047,
+        3.9127449989318848
+      ],
+      "decoded_goal_xy": [
+        7.916004180908203,
+        7.915989398956299
+      ],
+      "start_node": 18,
+      "goal_node": 10,
+      "routed": true,
+      "waypoint_node": 13,
+      "waypoint_xy": [
+        12.0,
+        4.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        18,
+        13,
+        14,
+        10
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 10,
+      "decoded_current_xy": [
+        12.016508102416992,
+        8.187094688415527
+      ],
+      "decoded_goal_xy": [
+        7.587764739990234,
+        15.883342742919922
+      ],
+      "start_node": 14,
+      "goal_node": 11,
+      "routed": true,
+      "waypoint_node": 15,
+      "waypoint_xy": [
+        12.0,
+        12.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        14,
+        15,
+        16,
+        11
+      ]
+    },
+    {
+      "env_seed": 1000,
+      "task": 11,
+      "decoded_current_xy": [
+        11.82931137084961,
+        3.952455520629883
+      ],
+      "decoded_goal_xy": [
+        15.947524070739746,
+        11.669661521911621
+      ],
+      "start_node": 13,
+      "goal_node": 19,
+      "routed": true,
+      "waypoint_node": 14,
+      "waypoint_xy": [
+        12.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        13,
+        14,
+        15,
+        19
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 0,
+      "decoded_current_xy": [
+        2.4987049102783203,
+        2.908334732055664
+      ],
+      "decoded_goal_xy": [
+        12.216373443603516,
+        8.033699989318848
+      ],
+      "start_node": 6,
+      "goal_node": 14,
+      "routed": true,
+      "waypoint_node": 7,
+      "waypoint_xy": [
+        4.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        6,
+        7,
+        10,
+        14
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 1,
+      "decoded_current_xy": [
+        7.508990287780762,
+        15.759660720825195
+      ],
+      "decoded_goal_xy": [
+        15.884421348571777,
+        11.639966011047363
+      ],
+      "start_node": 11,
+      "goal_node": 19,
+      "routed": true,
+      "waypoint_node": 16,
+      "waypoint_xy": [
+        12.0,
+        16.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        11,
+        16,
+        15,
+        19
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 2,
+      "decoded_current_xy": [
+        -0.09987258911132812,
+        11.880356788635254
+      ],
+      "decoded_goal_xy": [
+        3.9494190216064453,
+        20.16094207763672
+      ],
+      "start_node": 2,
+      "goal_node": 9,
+      "routed": true,
+      "waypoint_node": 3,
+      "waypoint_xy": [
+        0.0,
+        16.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        2,
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 3,
+      "decoded_current_xy": [
+        4.2540459632873535,
+        19.191455841064453
+      ],
+      "decoded_goal_xy": [
+        -0.10004043579101562,
+        11.91067123413086
+      ],
+      "start_node": 9,
+      "goal_node": 2,
+      "routed": true,
+      "waypoint_node": 4,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        9,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 4,
+      "decoded_current_xy": [
+        0.46326732635498047,
+        16.00165557861328
+      ],
+      "decoded_goal_xy": [
+        8.1986722946167,
+        19.982582092285156
+      ],
+      "start_node": 3,
+      "goal_node": 12,
+      "routed": true,
+      "waypoint_node": 4,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        3,
+        4,
+        9,
+        12
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 5,
+      "decoded_current_xy": [
+        15.988953590393066,
+        11.872108459472656
+      ],
+      "decoded_goal_xy": [
+        11.905010223388672,
+        3.895146369934082
+      ],
+      "start_node": 19,
+      "goal_node": 13,
+      "routed": true,
+      "waypoint_node": 15,
+      "waypoint_xy": [
+        12.0,
+        12.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        19,
+        15,
+        14,
+        13
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 6,
+      "decoded_current_xy": [
+        12.105202674865723,
+        8.180458068847656
+      ],
+      "decoded_goal_xy": [
+        4.050734996795654,
+        4.042916774749756
+      ],
+      "start_node": 14,
+      "goal_node": 6,
+      "routed": true,
+      "waypoint_node": 10,
+      "waypoint_xy": [
+        8.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        14,
+        10,
+        7,
+        6
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 7,
+      "decoded_current_xy": [
+        4.25591516494751,
+        0.046184539794921875
+      ],
+      "decoded_goal_xy": [
+        7.957291126251221,
+        7.97672700881958
+      ],
+      "start_node": 5,
+      "goal_node": 10,
+      "routed": true,
+      "waypoint_node": 6,
+      "waypoint_xy": [
+        4.0,
+        4.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        5,
+        6,
+        7,
+        10
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 8,
+      "decoded_current_xy": [
+        7.667942047119141,
+        15.585716247558594
+      ],
+      "decoded_goal_xy": [
+        12.016717910766602,
+        8.140166282653809
+      ],
+      "start_node": 11,
+      "goal_node": 14,
+      "routed": true,
+      "waypoint_node": 16,
+      "waypoint_xy": [
+        12.0,
+        16.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 8.0,
+      "path_nodes": [
+        11,
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 9,
+      "decoded_current_xy": [
+        16.047632217407227,
+        4.233511447906494
+      ],
+      "decoded_goal_xy": [
+        8.077177047729492,
+        7.860673904418945
+      ],
+      "start_node": 18,
+      "goal_node": 10,
+      "routed": true,
+      "waypoint_node": 13,
+      "waypoint_xy": [
+        12.0,
+        4.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        18,
+        13,
+        14,
+        10
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 10,
+      "decoded_current_xy": [
+        12.06726360321045,
+        7.76676607131958
+      ],
+      "decoded_goal_xy": [
+        7.573140621185303,
+        15.808965682983398
+      ],
+      "start_node": 14,
+      "goal_node": 11,
+      "routed": true,
+      "waypoint_node": 15,
+      "waypoint_xy": [
+        12.0,
+        12.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        14,
+        15,
+        16,
+        11
+      ]
+    },
+    {
+      "env_seed": 2000,
+      "task": 11,
+      "decoded_current_xy": [
+        11.86559772491455,
+        3.9823107719421387
+      ],
+      "decoded_goal_xy": [
+        15.962839126586914,
+        11.827722549438477
+      ],
+      "start_node": 13,
+      "goal_node": 19,
+      "routed": true,
+      "waypoint_node": 14,
+      "waypoint_xy": [
+        12.0,
+        8.0
+      ],
+      "path_len": 4,
+      "path_cost": 3.0,
+      "distance_to_goal_before": 8.94427190999916,
+      "distance_to_goal_after_waypoint": 5.656854249492381,
+      "path_nodes": [
+        13,
+        14,
+        15,
+        19
+      ]
+    }
+  ],
+  "note": "decoded XY only; true simulator XY never used for routing",
+  "status": "PASS"
+}

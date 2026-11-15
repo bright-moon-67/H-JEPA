@@ -60,6 +60,10 @@ class HierarchicalSolver:
 
         # HiDe is explicitly opt-in; level-1 and default baseline unchanged.
         self.hide_nav_enabled: bool = False
+        # HiDe V1.1 task-space topology waypoints (real-state XY readout only).
+        # Both stay None unless a certified graph is installed: default off.
+        self.hide_topology_adapter: Any = None
+        self.hide_readout: Any = None
 
     def set_ragc_selector(self, selector: Any) -> None:
         """Attach a discrete action selector (or ``None`` to disable)."""
@@ -70,6 +74,9 @@ class HierarchicalSolver:
         self._n_envs = n_envs
         self._config = config
         self._action_dim = int(np.prod(action_space.shape[1:]))
+        if self.hide_topology_adapter is not None:
+            # Per-environment / per-task state must never leak across runs.
+            self.hide_topology_adapter.reset(int(n_envs))
 
         for level in sorted(self.level_solvers):
             self.level_solvers[level].configure(
@@ -83,7 +90,6 @@ class HierarchicalSolver:
     def n_envs(self) -> int:
         """Number of parallel environments."""
         return self._n_envs
-
     @property
     def action_dim(self) -> int:
         """Flattened action dimension including action_block grouping."""
@@ -97,6 +103,60 @@ class HierarchicalSolver:
     def __call__(self, *args: Any, **kwargs: Any) -> dict:
         """Make solver callable, forwarding to solve()."""
         return self.solve(*args, **kwargs)
+
+    def _apply_topology_waypoint(
+        self,
+        obs_embeddings: dict,
+        goal_embeddings: dict,
+        *,
+        horizon_schedules: dict,
+        call_idx: int,
+    ) -> dict:
+        """HiDe V1.1: swap ALL level goals for one LIVE train waypoint.
+
+        The XY readout is applied to REAL encoded observations only (current
+        observation and task-goal observation). A predicted latent is never
+        decoded, so the V1 long-horizon failure mode cannot enter here.
+
+        Returns the original dict object whenever nothing is overridden, so
+        the disabled/absent path stays a strict no-op. The environment task
+        goal and the success condition are never touched.
+        """
+        adapter = self.hide_topology_adapter
+        if (
+            adapter is None
+            or self.hide_readout is None
+            or not getattr(adapter.config, 'enabled', False)
+            or len(self.level_models) != 3
+        ):
+            return goal_embeddings
+        # L3 horizon 1 means the high level is skipped for this call: keep the
+        # real task goal so lower levels anchor exactly as upstream.
+        if int(horizon_schedules[3][call_idx]) <= 1:
+            return goal_embeddings
+        missing = [k for k in ('embed_1', 'embed_2', 'embed_3')
+                   if k not in goal_embeddings or k not in obs_embeddings]
+        if missing:
+            raise KeyError(f"Topology waypoint needs all levels, missing {missing}")
+        with torch.no_grad():
+            live_xy = self.hide_readout(obs_embeddings['embed_3'].squeeze(1))
+            goal_xy = self.hide_readout(goal_embeddings['embed_3'].squeeze(1))
+        replacement, override_mask = adapter.choose(
+            live_xy.detach().float().cpu().numpy(),
+            goal_xy.detach().float().cpu().numpy(),
+            goal_embeddings,
+            planning_call=call_idx,
+        )
+        if not bool(override_mask.any()):
+            return goal_embeddings
+        return {
+            key: (
+                torch.where(override_mask[:, None, None], replacement[key], value)
+                if key in ('embed_1', 'embed_2', 'embed_3')
+                else value
+            )
+            for key, value in goal_embeddings.items()
+        }
 
     def solve(
         self,
@@ -128,6 +188,12 @@ class HierarchicalSolver:
         )
         obs_embeddings = self._encode_all_levels(info_dict=info_dict, key='pixels')
         goal_embeddings = self._encode_all_levels(info_dict=info_dict, key='goal')
+        goal_embeddings = self._apply_topology_waypoint(
+            obs_embeddings,
+            goal_embeddings,
+            horizon_schedules=horizon_schedules,
+            call_idx=call_idx,
+        )
 
         for level in range(len(self.level_models), 0, -1):
             level_cfg = self._level_plan_config(level)

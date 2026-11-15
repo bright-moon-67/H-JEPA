@@ -231,6 +231,18 @@ def _build_policy(
             cfg, solver, checkpoint=ckpt_path,
             normalizer=ckpt_path.parent / NORMALIZER_ARTIFACT_FILENAME,
         )
+    topo_spec = cfg.get("hide_topology", None)
+    if (
+        _is_hierarchical_solver(cfg)
+        and topo_spec is not None
+        and bool(topo_spec.get("enabled", False))
+    ):
+        from hide_topology_integration import install_topology_from_cfg
+        ckpt_path = resolve_model_checkpoint_path(cfg.policy, cfg.get("cache_dir"))
+        install_topology_from_cfg(
+            cfg, solver, checkpoint=ckpt_path,
+            normalizer=ckpt_path.parent / NORMALIZER_ARTIFACT_FILENAME,
+        )
 
     # Optional Feedback-N control: execute fewer Level-1 tokens than the planner
     # produced, while the solver keeps its ORIGINAL receding_horizon schedule.
@@ -589,5 +601,25 @@ def run_planning_eval(
         (resolved_results_dir / "planning_compute.json").write_text(
             json.dumps(solve_records)
         )
+
+    topo_record_path = cfg.get("hide_topology", {}).get("record_path", None) \
+        if cfg.get("hide_topology", None) is not None else None
+    adapter = getattr(getattr(policy, "solver", None), "hide_topology_adapter", None)
+    if topo_record_path and adapter is not None:
+        import json
+        from pathlib import Path as _Path
+        dest = _Path(str(topo_record_path)).expanduser()
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_text(json.dumps({
+            "records": adapter.records,
+            "graph_evidence_id": adapter.config.certification_evidence_id,
+            "config": {
+                "attach_radius": adapter.config.attach_radius,
+                "attach_margin": adapter.config.attach_margin,
+                "lookahead_cells": adapter.config.lookahead_cells,
+                "arrival_radius": adapter.config.arrival_radius,
+                "max_waypoint_calls": adapter.config.max_waypoint_calls,
+            },
+        }, indent=1))
 
     return metrics_to_save

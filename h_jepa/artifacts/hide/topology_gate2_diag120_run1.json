@@ -1,0 +1,230 @@
+{
+  "gate": "train_local_waypoint_executability",
+  "arrival_radius": 2.0,
+  "eval_budget_frames": 40,
+  "num_tasks": 12,
+  "successes": 11,
+  "false_arrivals": 0,
+  "near_misses_within_extra_1.0": 1,
+  "determinism": null,
+  "results": [
+    {
+      "task": 0,
+      "train_episode": 150,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "start_xy": [
+        3.061696042151362,
+        12.642079159633385
+      ],
+      "waypoint_distance_from_start": 3.1282979880057504,
+      "min_real_distance": 0.6183787968913967,
+      "final_real_distance": 0.6183787968913967,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 1,
+      "train_episode": 151,
+      "waypoint_xy": [
+        4.0,
+        8.0
+      ],
+      "start_xy": [
+        7.52529078614714,
+        8.67383759789595
+      ],
+      "waypoint_distance_from_start": 3.5891130151100157,
+      "min_real_distance": 0.1493714752704891,
+      "final_real_distance": 0.1493714752704891,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 2,
+      "train_episode": 152,
+      "waypoint_xy": [
+        16.0,
+        4.0
+      ],
+      "start_xy": [
+        19.459939306602855,
+        3.6356392339430226
+      ],
+      "waypoint_distance_from_start": 3.479071538962238,
+      "min_real_distance": 0.10299501986896041,
+      "final_real_distance": 0.5030494492468002,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 3,
+      "train_episode": 153,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "start_xy": [
+        4.69515807404105,
+        11.231616236545623
+      ],
+      "waypoint_distance_from_start": 4.757617360420358,
+      "min_real_distance": 0.14514197129352083,
+      "final_real_distance": 0.34518960719497044,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 4,
+      "train_episode": 154,
+      "waypoint_xy": [
+        20.0,
+        20.0
+      ],
+      "start_xy": [
+        15.822360462004916,
+        19.75230199787146
+      ],
+      "waypoint_distance_from_start": 4.184976273490478,
+      "min_real_distance": 1.7765612404626974,
+      "final_real_distance": 1.9119938458470713,
+      "steps": 121,
+      "env_terminated_success": false,
+      "reached": true
+    },
+    {
+      "task": 5,
+      "train_episode": 155,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "start_xy": [
+        3.3358165945249554,
+        11.896171447613646
+      ],
+      "waypoint_distance_from_start": 3.3374320548287897,
+      "min_real_distance": 0.0862706206116555,
+      "final_real_distance": 0.34409435841834585,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 6,
+      "train_episode": 156,
+      "waypoint_xy": [
+        20.0,
+        20.0
+      ],
+      "start_xy": [
+        16.222314114976363,
+        20.54183266672517
+      ],
+      "waypoint_distance_from_start": 3.8163455405187467,
+      "min_real_distance": 0.1827581959694476,
+      "final_real_distance": 0.29269568267680496,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 7,
+      "train_episode": 157,
+      "waypoint_xy": [
+        0.0,
+        20.0
+      ],
+      "start_xy": [
+        4.838957354125773,
+        19.756004037850882
+      ],
+      "waypoint_distance_from_start": 4.845104983856694,
+      "min_real_distance": 0.9045539008722466,
+      "final_real_distance": 1.0195767668505857,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 8,
+      "train_episode": 158,
+      "waypoint_xy": [
+        16.0,
+        12.0
+      ],
+      "start_xy": [
+        20.433173979472958,
+        12.815302812568259
+      ],
+      "waypoint_distance_from_start": 4.507521515029941,
+      "min_real_distance": 0.14056957768051687,
+      "final_real_distance": 0.14056957768051687,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    },
+    {
+      "task": 9,
+      "train_episode": 159,
+      "waypoint_xy": [
+        0.0,
+        12.0
+      ],
+      "start_xy": [
+        0.16482488952318985,
+        16.49654511441144
+      ],
+      "waypoint_distance_from_start": 4.499565002324527,
+      "min_real_distance": 1.0148977456116661,
+      "final_real_distance": 1.0773219823757618,
+      "steps": 121,
+      "env_terminated_success": false,
+      "reached": true
+    },
+    {
+      "task": 10,
+      "train_episode": 160,
+      "waypoint_xy": [
+        4.0,
+        12.0
+      ],
+      "start_xy": [
+        -0.15960680840561392,
+        12.769373525932856
+      ],
+      "waypoint_distance_from_start": 4.2301612762329395,
+      "min_real_distance": 2.7312409440382486,
+      "final_real_distance": 3.219669883983482,
+      "steps": 121,
+      "env_terminated_success": false,
+      "reached": false
+    },
+    {
+      "task": 11,
+      "train_episode": 161,
+      "waypoint_xy": [
+        16.0,
+        12.0
+      ],
+      "start_xy": [
+        19.880950983195476,
+        11.605360602714596
+      ],
+      "waypoint_distance_from_start": 3.9009640844098676,
+      "min_real_distance": 0.06114694235135773,
+      "final_real_distance": 0.3725547152810396,
+      "steps": 121,
+      "env_terminated_success": true,
+      "reached": true
+    }
+  ],
+  "note": "REAL simulator xy used for scoring only; never for control",
+  "status": "NO-GO"
+}
