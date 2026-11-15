@@ -1,0 +1,12 @@
+{
+  "nodes": 12300,
+  "directed_edges": 12000,
+  "episodes": 300,
+  "weak_components": 300,
+  "largest_weak_component": 41,
+  "certified_online": false,
+  "attachments_enabled": false,
+  "validation_links": 0,
+  "source_states": "artifacts/pahrl/states_train.npz",
+  "graph": "artifacts/pahrl/graph_observed_only.npz"
+}

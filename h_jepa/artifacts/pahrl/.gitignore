@@ -1,0 +1,3 @@
+# Large binary artifacts are reproducible from the exact commands in
+# audits/antmaze_pahrl_v1/PAHRL_STAGE01_AUDIT.md; their SHA256 is recorded there.
+*.npz

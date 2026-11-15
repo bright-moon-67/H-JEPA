@@ -1,0 +1,99 @@
+{
+  "checkpoint": "/root/rivermind-data/hjepa_home/ckpts/ant/ant_hjepa_l3/seed42/ant_hjepa_l3_object.ckpt",
+  "states": "artifacts/pahrl/states_train.npz",
+  "dataset": "/root/rivermind-data/hjepa_home/visual_antmaze_medium_explore_stitch_train.h5",
+  "num_nodes": 8,
+  "pixel_exact_match_count": 0,
+  "max_cosine_distance": 0.7661686539649963,
+  "max_abs_diff": 3.802476406097412,
+  "rows": [
+    {
+      "node": 0,
+      "episode": 0,
+      "step": 0,
+      "source_row": 0,
+      "stored_pixels_sha256": "dfeae7ff325e676c9a7ba27f6861276e694bfbaf5d360468c6414b518e4b388d",
+      "live_pixels_sha256": "167f69fae359f9eaf3f6ee21b11bad877a1c9ed7fb0a9dcfd066daaaf94fb8a0",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.02952587604522705,
+      "max_abs_diff": 0.705774188041687
+    },
+    {
+      "node": 1757,
+      "episode": 42,
+      "step": 350,
+      "source_row": 17234,
+      "stored_pixels_sha256": "9fceef205a3b1705ada20822ef99a26fab43ccca5d505e93874677bf1d4ab4c2",
+      "live_pixels_sha256": "150e16b77b98530eef0f6146d3e09f16e306f918495ed3f478d02f7fe19b3eda",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 2.676248550415039e-05,
+      "max_abs_diff": 0.028388917446136475
+    },
+    {
+      "node": 3514,
+      "episode": 85,
+      "step": 290,
+      "source_row": 34460,
+      "stored_pixels_sha256": "42965d4d2079012531aafe06d966d9541b26dcfb08a60bda49dfa7330bb36ba1",
+      "live_pixels_sha256": "02a01413b26f3133ee0c9873ab8de3336aa7e6ea2358cdfff5ce00d53dafa138",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.06761586666107178,
+      "max_abs_diff": 1.8868401050567627
+    },
+    {
+      "node": 5271,
+      "episode": 128,
+      "step": 230,
+      "source_row": 51686,
+      "stored_pixels_sha256": "c8af4514171334093111d6bc67d23c689ab32d95726d0665a8d1e38935c1baec",
+      "live_pixels_sha256": "1ce268ebcb983cea6da0222721c870c5945a362a814da897710ef68a230443f1",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.15647029876708984,
+      "max_abs_diff": 2.165998935699463
+    },
+    {
+      "node": 7028,
+      "episode": 171,
+      "step": 170,
+      "source_row": 68912,
+      "stored_pixels_sha256": "967f57eee1305b2ad50aff491afd292afdada187205abf2737cd7de8d4cd18c5",
+      "live_pixels_sha256": "f42e4c90c55468a8150341905e9964f643d6d9883160a018bebcedfad57fd7a0",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.0004521608352661133,
+      "max_abs_diff": 0.09697461128234863
+    },
+    {
+      "node": 8785,
+      "episode": 214,
+      "step": 110,
+      "source_row": 86138,
+      "stored_pixels_sha256": "e776aed90780ce4d47a3218aeb2d19de60a86e6f9395e9cc3a5c13fc91b36134",
+      "live_pixels_sha256": "6b2704fc67c2f23b869c0042ba4dd93c88643598aa47337352a7ba3575a0eba7",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.3613196611404419,
+      "max_abs_diff": 2.4472250938415527
+    },
+    {
+      "node": 10542,
+      "episode": 257,
+      "step": 50,
+      "source_row": 103364,
+      "stored_pixels_sha256": "1b54d2cf9102c54d379530d9beb7c0c0d2732727c3e8288bf3497070374b2b4e",
+      "live_pixels_sha256": "b98515d0ff059e16350f5468e9e2c5f7b0a00ffab101f82692b7910894922824",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.20790696144104004,
+      "max_abs_diff": 2.4429469108581543
+    },
+    {
+      "node": 12299,
+      "episode": 299,
+      "step": 400,
+      "source_row": 120598,
+      "stored_pixels_sha256": "181fac6715bf7ddc5eee2b644df4cf3d2848c0542f96c0709a44c12d2925a333",
+      "live_pixels_sha256": "202af0ed29c1a7cc81f30850f3d103fbc2fe1a27d509914f2d63c1409c75ee73",
+      "pixel_exact_match": false,
+      "cosine_distance_live_vs_graph": 0.7661686539649963,
+      "max_abs_diff": 3.802476406097412
+    }
+  ]
+}

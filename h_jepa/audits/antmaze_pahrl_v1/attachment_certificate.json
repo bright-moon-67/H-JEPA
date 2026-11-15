@@ -1,0 +1,13 @@
+{
+  "calibration_passed": true,
+  "source_split": "train",
+  "max_cosine_distance": 0.8666393458843231,
+  "num_trials": 16,
+  "positive_trials": 8,
+  "negative_trials": 8,
+  "positive_max": 0.8663239479064941,
+  "negative_min": 0.8669547438621521,
+  "evidence_id": "train_only_local_rollouts",
+  "rule": "midpoint_between_max_positive_and_min_negative",
+  "evidence_sha256": "a23b180b036f2549add469a4b5533880c19c69949a8511a6a465747e0a8a9eb1"
+}
