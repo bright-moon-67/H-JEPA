@@ -18,6 +18,26 @@ from stable_worldmodel.solver.solver import (
 )
 
 
+def _as_xy(value) -> np.ndarray | None:
+    """Coerce an info entry to a `[B,2]` float array (audit helper).
+
+    Used only by the privileged "oracle localization" ablation, where the
+    simulator's own xy is read on purpose to bound what the learned readout
+    costs. The normal path never calls this.
+    """
+    if value is None:
+        return None
+    arr = value.detach().cpu().numpy() if torch.is_tensor(value) else np.asarray(value)
+    arr = np.asarray(arr, dtype=np.float32)
+    if arr.ndim == 3 and arr.shape[-1] >= 2:
+        arr = arr[:, -1, :]  # (B,T,2) -> last time step, like every other stream
+    if arr.ndim == 1 and arr.size == 2:
+        arr = arr[None, :]
+    if arr.ndim != 2 or arr.shape[1] < 2:
+        raise ValueError(f'Expected [B,2] xy, got {arr.shape}')
+    return arr[:, :2]
+
+
 def build_hierarchical_solver(cfg: Any, model: Any) -> "HierarchicalSolver":
     """Build one GradientSolver per level from cfg.solver.solvers.levelN."""
     level_models = [model.get_level(level) for level in range(1, model.num_levels + 1)]
@@ -111,6 +131,7 @@ class HierarchicalSolver:
         *,
         horizon_schedules: dict,
         call_idx: int,
+        info_dict: dict | None = None,
     ) -> dict:
         """HiDe V1.1: swap ALL level goals for one LIVE train waypoint.
 
@@ -141,9 +162,26 @@ class HierarchicalSolver:
         with torch.no_grad():
             live_xy = self.hide_readout(obs_embeddings['embed_3'].squeeze(1))
             goal_xy = self.hide_readout(goal_embeddings['embed_3'].squeeze(1))
+        if getattr(self, 'hide_topology_oracle_localization', False):
+            # AUDIT ONLY: privileged simulator xy, never part of the method.
+            if info_dict is None:
+                raise ValueError('oracle localization needs the raw info_dict')
+            live_xy = _as_xy(info_dict.get('xy'))
+            goal_xy = _as_xy(info_dict.get('goal_xy'))
+            if live_xy is None or goal_xy is None:
+                raise ValueError('oracle localization needs xy and goal_xy')
+            # info xy is normalized by the frozen normalizer; invert it.
+            stats = getattr(self, 'hide_topology_xy_stats', None)
+            if stats is None:
+                raise ValueError('oracle localization needs xy normalization stats')
+            mean, std = stats
+            live_xy = live_xy * std + mean
+            goal_xy = goal_xy * std + mean
         replacement, override_mask = adapter.choose(
-            live_xy.detach().float().cpu().numpy(),
-            goal_xy.detach().float().cpu().numpy(),
+            live_xy.detach().float().cpu().numpy()
+            if torch.is_tensor(live_xy) else np.asarray(live_xy, dtype=np.float32),
+            goal_xy.detach().float().cpu().numpy()
+            if torch.is_tensor(goal_xy) else np.asarray(goal_xy, dtype=np.float32),
             goal_embeddings,
             planning_call=call_idx,
         )
@@ -193,6 +231,7 @@ class HierarchicalSolver:
             goal_embeddings,
             horizon_schedules=horizon_schedules,
             call_idx=call_idx,
+            info_dict=info_dict,
         )
 
         for level in range(len(self.level_models), 0, -1):

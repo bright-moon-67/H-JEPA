@@ -106,6 +106,15 @@ def install_topology_from_cfg(cfg, solver, *, checkpoint, normalizer):
         max_waypoint_calls=int(spec.get("max_waypoint_calls", 12)),
     )
     adapter = TopologyGoalAdapter(graph, config)
+    ablation = str(spec.get("ablation", "none") or "none")
+    if ablation not in ("none", "oracle_localization", "anti_route"):
+        raise ValueError(f"Unknown hide_topology.ablation={ablation}")
+    if ablation == "anti_route":
+        from hide_topology_ablation import install_anti_route
+        install_anti_route(graph)
+    if ablation == "oracle_localization":
+        from hide_topology_ablation import install_oracle_localization
+        install_oracle_localization(solver, normalizer)
     adapter.reset(int(getattr(solver, "n_envs", 1) or 1))
     solver.hide_topology_adapter = adapter
     solver.hide_readout = readout
@@ -117,6 +126,7 @@ def install_topology_from_cfg(cfg, solver, *, checkpoint, normalizer):
         "geometry_audit_sha256": sha256(geometry_file),
         "certification_sha256": sha256(certification_file),
         "certification_evidence_id": evidence_id,
+        "ablation": ablation,
         "grid_width": graph.resolution,
         "num_nodes": int(len(graph.cells)),
         "num_edges": int(len(graph.edges)),

@@ -22,3 +22,5 @@ hide_topology:
   max_waypoint_calls: 12
   # Optional JSON dump of per-call adapter decisions (diagnostics only).
   record_path: null
+  # AUDIT ONLY: none | oracle_localization (privileged) | anti_route (control)
+  ablation: none
