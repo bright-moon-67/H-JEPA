@@ -1,0 +1,70 @@
+{
+  "diagnostic_only": true,
+  "note": "no parameter, alpha or candidate-action tuning was performed",
+  "num_pairs": 24,
+  "pairs_sha256": "b117aa5c9c29d5b58abe6fb7e5463d64701267ce68b6d996803e723f56100328",
+  "checkpoint_sha256": "c55d9835d6c774da4363c45f8c390c8abed5a496282dd5b9815615e417f69f99",
+  "env_frames_per_l3_step": 20,
+  "per_step": [
+    {
+      "step": 0,
+      "env_frames": 0,
+      "median_pred_xy_error": 0.21261821687221527,
+      "p90_pred_xy_error": 0.49352535605430603,
+      "median_real_xy_error": 0.21261821687221527,
+      "mean_latent_cosine": 1.0,
+      "mean_motion_cosine": 0.0,
+      "nontrivial": 3
+    },
+    {
+      "step": 1,
+      "env_frames": 20,
+      "median_pred_xy_error": 0.6458994150161743,
+      "p90_pred_xy_error": 1.119119644165039,
+      "median_real_xy_error": 0.24684089422225952,
+      "mean_latent_cosine": 0.9451157450675964,
+      "mean_motion_cosine": 0.4590451419353485,
+      "nontrivial": 15
+    },
+    {
+      "step": 2,
+      "env_frames": 40,
+      "median_pred_xy_error": 0.9283667206764221,
+      "p90_pred_xy_error": 1.7903544902801514,
+      "median_real_xy_error": 0.26520848274230957,
+      "mean_latent_cosine": 0.8461452126502991,
+      "mean_motion_cosine": 0.44491899013519287,
+      "nontrivial": 18
+    },
+    {
+      "step": 3,
+      "env_frames": 60,
+      "median_pred_xy_error": 1.0839948654174805,
+      "p90_pred_xy_error": 2.4760568141937256,
+      "median_real_xy_error": 0.25504833459854126,
+      "mean_latent_cosine": 0.7413097023963928,
+      "mean_motion_cosine": 0.4330960214138031,
+      "nontrivial": 22
+    },
+    {
+      "step": 4,
+      "env_frames": 80,
+      "median_pred_xy_error": 1.7547025680541992,
+      "p90_pred_xy_error": 3.185885429382324,
+      "median_real_xy_error": 0.2570294141769409,
+      "mean_latent_cosine": 0.5699517726898193,
+      "mean_motion_cosine": 0.30230480432510376,
+      "nontrivial": 24
+    },
+    {
+      "step": 5,
+      "env_frames": 100,
+      "median_pred_xy_error": 1.6017701625823975,
+      "p90_pred_xy_error": 3.4168541431427,
+      "median_real_xy_error": 0.2513154149055481,
+      "mean_latent_cosine": 0.5770938396453857,
+      "mean_motion_cosine": 0.3972676694393158,
+      "nontrivial": 23
+    }
+  ]
+}

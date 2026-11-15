@@ -1,0 +1,83 @@
+{
+  "implementation_smoke_only": true,
+  "checkpoint_sha256": "c55d9835d6c774da4363c45f8c390c8abed5a496282dd5b9815615e417f69f99",
+  "normalizer_sha256": "1e86ce0a72836c69455a73f614765b7c186bebeca0904be60a9db12ed889fb44",
+  "head_sha256": "69e3c0341c5c546432c4d0624864d57189f78f79ab24587f1f0fd00ef99bfad0",
+  "device": "cuda:0",
+  "head_requires_grad": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "levels": {
+    "3": {
+      "cost_shape": [
+        2,
+        400
+      ],
+      "cost_shape_with_nav": [
+        2,
+        400
+      ],
+      "num_samples": 400,
+      "horizon": 5,
+      "projected_prediction_shape": [
+        2,
+        400,
+        6,
+        384
+      ],
+      "predicted_rollout_shape": [
+        2,
+        400,
+        6,
+        384
+      ],
+      "base_cost_median": 577.24951171875,
+      "nav_cost_median": 25.837282180786133,
+      "alpha_scaled_nav_median": 6.459320545196533,
+      "gradient_abs_sum": 980349.125,
+      "gradient_finite": true,
+      "disabled_adapter_identity": true,
+      "get_cost_seconds_base": 0.04342125654220581,
+      "get_cost_seconds_with_nav": 0.036375224590301514,
+      "cost_overhead_ratio": 0.8377285110334036
+    },
+    "2": {
+      "cost_shape": [
+        2,
+        100
+      ],
+      "cost_shape_with_nav": [
+        2,
+        100
+      ],
+      "num_samples": 100,
+      "horizon": 2,
+      "projected_prediction_shape": [
+        2,
+        100,
+        2,
+        384
+      ],
+      "predicted_rollout_shape": [
+        2,
+        100,
+        3,
+        384
+      ],
+      "base_cost_median": 490.57965087890625,
+      "nav_cost_median": 19.80742645263672,
+      "alpha_scaled_nav_median": 4.95185661315918,
+      "gradient_abs_sum": 41967.0,
+      "gradient_finite": true,
+      "disabled_adapter_identity": true,
+      "get_cost_seconds_base": 0.016322624683380128,
+      "get_cost_seconds_with_nav": 0.012862539291381836,
+      "cost_overhead_ratio": 0.7880190558126728
+    }
+  }
+}

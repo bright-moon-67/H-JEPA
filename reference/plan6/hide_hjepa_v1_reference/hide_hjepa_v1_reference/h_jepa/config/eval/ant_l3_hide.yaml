@@ -1,0 +1,12 @@
+# HiDe-inspired AntMaze L3 experiment; preserves all original ant_l3 config.
+defaults:
+  - ant_l3
+  - _self_
+
+hide_nav:
+  enabled: false
+  projector_path: null
+  prediction_audit_path: null
+  scale_stats_path: null
+  alpha_l3: 0.25
+  alpha_l2: 0.25

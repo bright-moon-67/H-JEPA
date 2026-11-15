@@ -1,0 +1,26 @@
+{
+  "source_split": "train",
+  "render_domain": "live_eval_pipeline",
+  "seed": 42,
+  "train": 4305,
+  "val": {
+    "num": 902,
+    "median_xy_error": 0.30885717345877034,
+    "p90_xy_error": 0.6936812878206158,
+    "mean_xy_error": 0.36554120192200895
+  },
+  "test": {
+    "num": 943,
+    "median_xy_error": 0.27024485158145817,
+    "p90_xy_error": 0.6615950030159818,
+    "mean_xy_error": 0.33762829947697426
+  },
+  "episode_counts": {
+    "train": 105,
+    "val": 22,
+    "test": 23
+  },
+  "best_epoch": 30,
+  "goal_radius": 1.0,
+  "real_state_gate": true
+}

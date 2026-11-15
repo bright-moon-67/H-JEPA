@@ -219,6 +219,18 @@ def _build_policy(
         _drop_levels_above_model(cfg, model.num_levels)
     policy_config = _build_policy_plan_config(cfg)
     solver = build_solver(cfg, model)
+    hide_spec = cfg.get("hide_nav", None)
+    if (
+        _is_hierarchical_solver(cfg)
+        and hide_spec is not None
+        and bool(hide_spec.get("enabled", False))
+    ):
+        from hide_integration import install_hide_from_cfg
+        ckpt_path = resolve_model_checkpoint_path(cfg.policy, cfg.get("cache_dir"))
+        install_hide_from_cfg(
+            cfg, solver, checkpoint=ckpt_path,
+            normalizer=ckpt_path.parent / NORMALIZER_ARTIFACT_FILENAME,
+        )
 
     # Optional Feedback-N control: execute fewer Level-1 tokens than the planner
     # produced, while the solver keeps its ORIGINAL receding_horizon schedule.

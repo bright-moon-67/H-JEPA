@@ -38,3 +38,7 @@ h_jepa/unit_tests/
 
 # previous README, kept for local reference
 /README_old.md
+
+# HiDe V1: large live-state exports (regenerate with scripts/export_hide_live_train.py)
+h_jepa/artifacts/hide/live_train_states.npz
+h_jepa/artifacts/hide/smoke_live_states.npz

@@ -1,0 +1,14 @@
+{
+  "num_pairs": 70,
+  "nontrivial_pairs": 68,
+  "median_real_xy_error": 0.2703109085559845,
+  "median_pred_xy_error": 1.909186601638794,
+  "p90_pred_xy_error": 3.388838052749634,
+  "mean_motion_direction_cosine": 0.2622179388999939,
+  "prediction_vs_real_median_ratio": 7.062928199768066,
+  "status": "NO-GO",
+  "source_split": "train_heldout",
+  "head_sha256": "69e3c0341c5c546432c4d0624864d57189f78f79ab24587f1f0fd00ef99bfad0",
+  "checkpoint_sha256": "c55d9835d6c774da4363c45f8c390c8abed5a496282dd5b9815615e417f69f99",
+  "pairs_sha256": "b117aa5c9c29d5b58abe6fb7e5463d64701267ce68b6d996803e723f56100328"
+}

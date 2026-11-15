@@ -58,6 +58,9 @@ class HierarchicalSolver:
         # and falls back to the original actions whenever a guard fails.
         self.ragc_selector: Any = None
 
+        # HiDe is explicitly opt-in; level-1 and default baseline unchanged.
+        self.hide_nav_enabled: bool = False
+
     def set_ragc_selector(self, selector: Any) -> None:
         """Attach a discrete action selector (or ``None`` to disable)."""
         self.ragc_selector = selector
@@ -146,6 +149,13 @@ class HierarchicalSolver:
             level_info = dict(info_dict)
             level_info['embed_0'] = obs_embeddings[f'embed_{level}']
             level_info['action_cost_weight'] = level_cfg.action_cost_weight
+            if self.hide_nav_enabled:
+                # L3 = task navigation; L2 = tracking an ACTUAL L3 plan only.
+                # Skipped L3 never creates L2 navigation cost.
+                level_info['_hide_nav_active'] = (
+                    level == 3
+                    or (level == 2 and subgoal_latents is not None)
+                )
 
             if subgoal_latents is None:
                 # No plan from the level above: this is the top level, or every level above
@@ -413,6 +423,8 @@ class LevelCostModel(nn.Module):
         self.model = model
         self.upper_models = upper_models
         self.level = self.model.level
+        # Registered as nn.Module only when enabled; otherwise a strict no-op.
+        self.hide_nav_cost = None
 
     def rollout(self, info_dict: dict, action_candidates: torch.Tensor) -> dict:
         return self.model.rollout(info_dict, action_candidates)
@@ -443,6 +455,10 @@ class LevelCostModel(nn.Module):
             action_cost = self._action_cost(action_for_cost, cost_info)
             if action_cost is not None:
                 cost = cost + action_weight * action_cost
+        if self.hide_nav_cost is not None and info_dict.get('_hide_nav_active', False):
+            # pred_for_cost has already been projected into the SAME goal
+            # level as cost_info['goal_embed_0']; keep its autograd graph.
+            cost = self.hide_nav_cost(cost, pred_for_cost, cost_info)
         return cost
 
     def _project_to_goal_space(
