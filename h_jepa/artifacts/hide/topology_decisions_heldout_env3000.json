@@ -1,0 +1,2700 @@
+{
+ "records": [
+  {
+   "env": 0,
+   "planning_call": 0,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 1
+  },
+  {
+   "env": 2,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 1
+  },
+  {
+   "env": 3,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 1
+  },
+  {
+   "env": 4,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 1
+  },
+  {
+   "env": 5,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 1
+  },
+  {
+   "env": 6,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 15,
+   "wait_calls": 1
+  },
+  {
+   "env": 7,
+   "planning_call": 0,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 12,
+   "wait_calls": 1
+  },
+  {
+   "env": 9,
+   "planning_call": 0,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 1
+  },
+  {
+   "env": 11,
+   "planning_call": 0,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 1
+  },
+  {
+   "env": 0,
+   "planning_call": 1,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 2
+  },
+  {
+   "env": 2,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 2
+  },
+  {
+   "env": 3,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 2
+  },
+  {
+   "env": 4,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 2
+  },
+  {
+   "env": 5,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 2
+  },
+  {
+   "env": 6,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 15,
+   "wait_calls": 2
+  },
+  {
+   "env": 7,
+   "planning_call": 1,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 12,
+   "wait_calls": 2
+  },
+  {
+   "env": 9,
+   "planning_call": 1,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 2
+  },
+  {
+   "env": 11,
+   "planning_call": 1,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 2
+  },
+  {
+   "env": 0,
+   "planning_call": 2,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 3
+  },
+  {
+   "env": 2,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 3
+  },
+  {
+   "env": 3,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 3
+  },
+  {
+   "env": 4,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 3
+  },
+  {
+   "env": 5,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 3
+  },
+  {
+   "env": 6,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 15,
+   "wait_calls": 3
+  },
+  {
+   "env": 7,
+   "planning_call": 2,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 12,
+   "wait_calls": 3
+  },
+  {
+   "env": 9,
+   "planning_call": 2,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 3
+  },
+  {
+   "env": 11,
+   "planning_call": 2,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 3
+  },
+  {
+   "env": 0,
+   "planning_call": 3,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 4
+  },
+  {
+   "env": 2,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 4
+  },
+  {
+   "env": 3,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 4
+  },
+  {
+   "env": 4,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 4
+  },
+  {
+   "env": 5,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 4
+  },
+  {
+   "env": 6,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 15,
+   "wait_calls": 4
+  },
+  {
+   "env": 7,
+   "planning_call": 3,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 12,
+   "wait_calls": 4
+  },
+  {
+   "env": 9,
+   "planning_call": 3,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 4
+  },
+  {
+   "env": 11,
+   "planning_call": 3,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 4
+  },
+  {
+   "env": 0,
+   "planning_call": 4,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 5
+  },
+  {
+   "env": 2,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 5
+  },
+  {
+   "env": 3,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 5
+  },
+  {
+   "env": 4,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 5
+  },
+  {
+   "env": 5,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 5
+  },
+  {
+   "env": 6,
+   "planning_call": 4,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 4,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 12,
+   "wait_calls": 5
+  },
+  {
+   "env": 9,
+   "planning_call": 4,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 5
+  },
+  {
+   "env": 11,
+   "planning_call": 4,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 5
+  },
+  {
+   "env": 0,
+   "planning_call": 5,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 6
+  },
+  {
+   "env": 2,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 6
+  },
+  {
+   "env": 3,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 6
+  },
+  {
+   "env": 4,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 7,
+   "wait_calls": 6
+  },
+  {
+   "env": 5,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 6
+  },
+  {
+   "env": 6,
+   "planning_call": 5,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 5,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 5,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 1
+  },
+  {
+   "env": 9,
+   "planning_call": 5,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 5,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 6
+  },
+  {
+   "env": 11,
+   "planning_call": 5,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 10,
+   "wait_calls": 1
+  },
+  {
+   "env": 0,
+   "planning_call": 6,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 7
+  },
+  {
+   "env": 2,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 7
+  },
+  {
+   "env": 3,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 7
+  },
+  {
+   "env": 4,
+   "planning_call": 6,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 8,
+   "wait_calls": 1
+  },
+  {
+   "env": 5,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 7
+  },
+  {
+   "env": 6,
+   "planning_call": 6,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 6,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 2
+  },
+  {
+   "env": 9,
+   "planning_call": 6,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 7
+  },
+  {
+   "env": 11,
+   "planning_call": 6,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 10,
+   "wait_calls": 2
+  },
+  {
+   "env": 0,
+   "planning_call": 7,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 8
+  },
+  {
+   "env": 2,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 8
+  },
+  {
+   "env": 3,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 8
+  },
+  {
+   "env": 4,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 8,
+   "wait_calls": 2
+  },
+  {
+   "env": 5,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 8
+  },
+  {
+   "env": 6,
+   "planning_call": 7,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 7,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 3
+  },
+  {
+   "env": 9,
+   "planning_call": 7,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 8
+  },
+  {
+   "env": 11,
+   "planning_call": 7,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 10,
+   "wait_calls": 3
+  },
+  {
+   "env": 0,
+   "planning_call": 8,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 9
+  },
+  {
+   "env": 2,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 9
+  },
+  {
+   "env": 3,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 9
+  },
+  {
+   "env": 4,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 8,
+   "wait_calls": 3
+  },
+  {
+   "env": 5,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 9
+  },
+  {
+   "env": 6,
+   "planning_call": 8,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 8,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 4
+  },
+  {
+   "env": 9,
+   "planning_call": 8,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 9
+  },
+  {
+   "env": 11,
+   "planning_call": 8,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 10,
+   "wait_calls": 4
+  },
+  {
+   "env": 0,
+   "planning_call": 9,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 10
+  },
+  {
+   "env": 2,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 10
+  },
+  {
+   "env": 3,
+   "planning_call": 9,
+   "active": true,
+   "reason": "new_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 1
+  },
+  {
+   "env": 4,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 8,
+   "wait_calls": 4
+  },
+  {
+   "env": 5,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 10
+  },
+  {
+   "env": 6,
+   "planning_call": 9,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 9,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 5
+  },
+  {
+   "env": 9,
+   "planning_call": 9,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 10
+  },
+  {
+   "env": 11,
+   "planning_call": 9,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 10,
+   "wait_calls": 5
+  },
+  {
+   "env": 0,
+   "planning_call": 10,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 11
+  },
+  {
+   "env": 2,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 11
+  },
+  {
+   "env": 3,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 2
+  },
+  {
+   "env": 4,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 8,
+   "wait_calls": 5
+  },
+  {
+   "env": 5,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 11
+  },
+  {
+   "env": 6,
+   "planning_call": 10,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 10,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 6
+  },
+  {
+   "env": 9,
+   "planning_call": 10,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 10,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 11
+  },
+  {
+   "env": 11,
+   "planning_call": 10,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 11,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 3
+  },
+  {
+   "env": 4,
+   "planning_call": 11,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 6,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 11,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 11,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 7
+  },
+  {
+   "env": 9,
+   "planning_call": 11,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 11,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 14,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 11,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 12,
+   "active": false,
+   "reason": "waypoint_timeout",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 12,
+   "active": false,
+   "reason": "waypoint_timeout",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 12,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 4
+  },
+  {
+   "env": 4,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 12,
+   "active": false,
+   "reason": "waypoint_timeout",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 12,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 8
+  },
+  {
+   "env": 9,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 12,
+   "active": false,
+   "reason": "waypoint_timeout",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 12,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 13,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 5
+  },
+  {
+   "env": 4,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 13,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 9
+  },
+  {
+   "env": 9,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 13,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 14,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 13,
+   "wait_calls": 6
+  },
+  {
+   "env": 4,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 14,
+   "active": true,
+   "reason": "continue_waypoint",
+   "waypoint_node": 11,
+   "wait_calls": 10
+  },
+  {
+   "env": 9,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 14,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 15,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 15,
+   "active": false,
+   "reason": "no_usable_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 15,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 16,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 17,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 18,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 19,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 20,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 21,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 22,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 23,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 24,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 25,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 26,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 0,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 1,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 2,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 3,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 4,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 5,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 6,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 7,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 8,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 9,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  },
+  {
+   "env": 10,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 12
+  },
+  {
+   "env": 11,
+   "planning_call": 27,
+   "active": false,
+   "reason": "previous_timeout_or_no_route",
+   "waypoint_node": null,
+   "wait_calls": 0
+  }
+ ],
+ "graph_evidence_id": "gate2_local_readiness_v1",
+ "config": {
+  "attach_radius": 2.0,
+  "attach_margin": 0.5,
+  "lookahead_cells": 1,
+  "arrival_radius": 2.0,
+  "max_waypoint_calls": 12
+ }
+}
