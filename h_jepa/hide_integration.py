@@ -29,6 +29,26 @@ def _load_json(path: str | Path) -> dict:
         return json.load(f)
 
 
+def _require_existing_file(spec, key: str) -> Path:
+    """Fail closed with an actionable message instead of ``Path(None)``.
+
+    Behaviour-neutral hardening: the reference installer already refuses to run
+    without these artifacts, so this changes only the error text. A null or
+    missing path previously surfaced as ``TypeError: expected str, bytes or
+    os.PathLike object, not NoneType`` far from the real cause.
+    """
+    value = spec.get(key, None)
+    if value is None or str(value).strip() == "":
+        raise ValueError(
+            f"hide_nav.{key} is required when hide_nav.enabled=true; a null "
+            "path would skip a required HiDe provenance gate"
+        )
+    path = Path(str(value)).expanduser().resolve()
+    if not path.is_file():
+        raise FileNotFoundError(f"hide_nav.{key} not found: {path}")
+    return path
+
+
 def install_hide_from_cfg(cfg, solver, *, checkpoint: Path, normalizer: Path):
     """Install once, only when explicitly enabled and all train-only gates pass.
 
@@ -47,9 +67,9 @@ def install_hide_from_cfg(cfg, solver, *, checkpoint: Path, normalizer: Path):
     checkpoint_hash = sha256(checkpoint)
     normalizer_hash = sha256(normalizer)
 
-    head_file = Path(spec["projector_path"]).expanduser().resolve()
-    scale_file = Path(spec["scale_stats_path"]).expanduser().resolve()
-    audit_file = Path(spec["prediction_audit_path"]).expanduser().resolve()
+    head_file = _require_existing_file(spec, "projector_path")
+    scale_file = _require_existing_file(spec, "scale_stats_path")
+    audit_file = _require_existing_file(spec, "prediction_audit_path")
     # weights_only prevents arbitrary Python object construction from model file.
     payload = torch.load(head_file, map_location="cpu", weights_only=True)
     meta = payload["metadata"]

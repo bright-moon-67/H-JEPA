@@ -243,3 +243,34 @@ python scripts/smoke_hide_grad.py --checkpoint "$CKPT" \
    （例如缩短 L3 代价视界并重新审视 horizon 配置，或改进预测器），
    而不是在开发集上搜索 α 或更换读出器。
 4. 按照 plan61 的既定原则：**任何未通过预先固定门禁的机制，都不进入闭环成功率比较。**
+
+## 9. 第三方可用性核验（2026-11-15）
+
+在清洁克隆 `git clone -b research/ant-hide-decouple-v1` 中验证（无本地未跟踪文件、无 `artifacts/hide/live_train_states.npz`）：
+
+| 检查 | 结果 |
+|---|---|
+| `PYTHONPATH=. pytest tests -q` | **72 passed**（64 基线 + 8 预检） |
+| `import hide_nav, hide_integration` | OK |
+| 9 个新脚本 `--help` | 全部可用 |
+| `eval.py --config-name ant_l3_hide --cfg job` | Hydra 组合成功，`hide_nav.enabled: false` |
+| 代码中硬编码 `/root`、`/tmp`、`hjepa_home` | 无（仅审计文档的复现命令里出现） |
+| 提交体积 | 46 文件 / +5528 行，无新增 >1MB 文件 |
+| 审计文档中的 sha256 片段 | 与已提交产物一致（`1e86ce0a…`、`55789361…` 分别指外部 normalizer 与本地未入库的 live 状态，已在文中注明） |
+
+**已知外部前置依赖**（他人复现需自备）：`ant_hjepa_l3_object.ckpt` + `normalizer.pt`、
+22GB `visual_antmaze_medium_explore_stitch_train.h5`、以及 `$HJEPA_HOME` 环境变量。
+
+**对参考包的唯一行为中性改动**：`hide_integration._require_existing_file()`。
+原先 `hide_nav.enabled=true` 而未给路径时会抛
+`TypeError: expected str, bytes or os.PathLike object, not NoneType`（离真正原因很远），
+现改为具名报错：
+
+```
+ValueError: hide_nav.projector_path is required when hide_nav.enabled=true;
+            a null path would skip a required HiDe provenance gate
+```
+
+门禁条件、哈希校验、α 校验、安装逻辑全部未变，仅错误文本与"文件不存在"的检查提前。
+新增 `tests/test_hide_preflight.py`（8 例）覆盖 null / 缺失键 / 文件不存在 / 正常安装，
+参考包原始测试文件未改动。
